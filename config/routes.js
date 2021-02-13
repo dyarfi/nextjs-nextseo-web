@@ -1,7 +1,5 @@
-
-
-const HOME = {
-  href: '/',
+const INDEX = {
+  href: '/home',
   url: '/',
   route: 'index'
 }
@@ -10,9 +8,22 @@ const ABOUT = {
   url: '/about',
   route: 'about'
 }
+const SERVICE = {
+  href: '/service',
+  url: '/service',
+  route: 'service'
+}
+const CONTACT = {
+  href: '/contact',
+  url: '/contact',
+  route: 'contact'
+}
 
 const ROUTES = {
-  ...HOME
+  INDEX,
+  ABOUT,
+  SERVICE,
+  CONTACT
 };
 
 export default ROUTES;
