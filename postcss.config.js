@@ -1,3 +1,4 @@
+const isProduction = process.env.NODE_ENV !== 'development';
 module.exports = {
   "plugins": [
     "postcss-flexbugs-fixes",
@@ -5,7 +6,8 @@ module.exports = {
       "postcss-preset-env",
       {
         "autoprefixer": {
-          "flexbox": "no-2009"
+          "flexbox": "no-2009",
+          // "grid": "autoplace"
         },
         "stage": 3,
         "features": {
@@ -29,20 +31,19 @@ module.exports = {
     [
       '@fullhuman/postcss-purgecss',
       {
-        // enabled: false,
         content: [
-          './config/**/*.{js,jsx,ts,tsx}',
-          './pages/**/*.{js,jsx,ts,tsx}',
           './components/**/*.{js,jsx,ts,tsx}',
-          './layouts/**/*.{js,jsx,ts,tsx}'
+          './config/**/*.{js,jsx,ts,tsx}',
+          './layouts/**/*.{js,jsx,ts,tsx}',
+          './pages/**/*.{js,jsx,ts,tsx}',
         ],
         keyframes: true,
-        // defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
         defaultExtractor(content) {
           const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '')
           return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || []
         },
-        safelist: ["html", "body"],
+        safelist: [/col-[a-z-0-9]+/g, /alert-[a-z-0-9]+/g, /close+/g],
+        // whitelist: ['col'],
         whitelistPatterns: [/-(leave|enter|appear)(|-(to|from|active))$/, /^(?!(|.*?:)cursor-move).+-move$/, /^router-link(|-exact)-active$/],
       }
     ],

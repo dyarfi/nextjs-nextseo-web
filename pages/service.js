@@ -11,6 +11,7 @@ import { DefaultSeo } from "next-seo";
 
 export default function Service(props) {
   const {
+    pathname,
     data: { title, description, slug, services, block_top = {} },
   } = props;
 
@@ -63,7 +64,7 @@ export default function Service(props) {
   return (
     <>
       <DefaultSeo title={title} description={description} />
-      <LayoutDefault>
+      <LayoutDefault pathname={pathname}>
         {/* <BlockMainTop /> */}
         <div className="bg-light py-lg-4">
           <Container><Row>
@@ -78,9 +79,9 @@ export default function Service(props) {
   );
 }
 
-Service.getInitialProps = async (ctx) => {
+Service.getInitialProps = async ({ ctx }) => {
+  const { pathname, err } = ctx;
   const res = await fetch(`${process.env.BASE_URL}/api/service`);
   const json = await res.json();
-
-  return { data: json };
+  return { data: json, pathname, err };
 };

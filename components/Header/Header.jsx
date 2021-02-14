@@ -8,6 +8,7 @@ import ROUTES from "../../config/routes";
 // import DarkModeToggle from "../DarkModeToggle";
 
 function Header(props) {
+  const { pathname } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   const onToggle = () => {
@@ -19,7 +20,7 @@ function Header(props) {
   };
 
   const classOpen = !isOpen ? "hidden" : "";
-
+  // console.log(props);
   return (
     <header>
       <nav className="navbar navbar-expand-md navbar-light shadow-sm">
@@ -41,31 +42,36 @@ function Header(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto text-right">
-              <li className="nav-item {% if slug == null %}active{% endif %}">
+              <li className={`nav-item ${ pathname === '/' ? `active`:``}`}>
                 <NavLink {...{ href: ROUTES.INDEX.href, as: ROUTES.INDEX.url }}>
                   <a className="nav-link">Home</a>
                 </NavLink>
               </li>
-              <li className="nav-item {% if slug == 'about' %}active{% endif %}">
+              <li className={`nav-item ${ pathname === '/about' ? `active`:``}`}>
                 <NavLink {...{ href: ROUTES.ABOUT.href, as: ROUTES.ABOUT.url }}>
                   <a className="nav-link">About</a>
                 </NavLink>
               </li>
-              <li className="nav-item {% if slug == 'service' %}active{% endif %}">
-                <NavLink {...{ href: ROUTES.SERVICE.href, as: ROUTES.SERVICE.url }}>
+              <li className={`nav-item ${ pathname === '/service' ? `active`:``}`}>
+                <NavLink
+                  {...{ href: ROUTES.SERVICE.href, as: ROUTES.SERVICE.url }}
+                >
                   <a className="nav-link">Service</a>
                 </NavLink>
               </li>
-              <li className="nav-item {% if slug == 'contact' %}active{% endif %}">
-                <NavLink {...{ href: ROUTES.CONTACT.href, as: ROUTES.CONTACT.url }}>
+              <li className={`nav-item ${ pathname === '/contact' ? `active`:``}`}>
+                <NavLink
+                  {...{ href: ROUTES.CONTACT.href, as: ROUTES.CONTACT.url }}
+                >
                   <a className="nav-link">Contact</a>
                 </NavLink>
               </li>
+              {/* <li>{pathname}</li> */}
             </ul>
           </div>
         </div>
         <div className="navbar-bg-holder"></div>
-      </nav>      
+      </nav>
     </header>
   );
 }

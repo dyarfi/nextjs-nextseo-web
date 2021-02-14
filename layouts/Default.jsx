@@ -2,11 +2,11 @@ import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 
 function Default(props) {
-  const { children } = props;
+  const { pathname, children } = props;
 
   return (
     <>
-      <Header />
+      <Header pathname={pathname}/>
       <main>{children}</main>
       <Footer />
     </>

@@ -8,13 +8,14 @@ import { DefaultSeo } from 'next-seo';
 
 export default function Contact(props) {
   const {
+    pathname,
     data: { title, description, header, slug, block_top = {} },
   } = props;
 
   return (
     <>
       <DefaultSeo title={title} description={description} />
-      <LayoutDefault>
+      <LayoutDefault pathname={pathname}>
         <BlockMainTop {...{ data: block_top }} />
         <div className="container my-3 py-5 contact">
           <div className="col-lg-4 mx-auto pb-2">
@@ -123,9 +124,9 @@ export default function Contact(props) {
   );
 }
 
-Contact.getInitialProps = async (ctx) => {
+Contact.getInitialProps = async ({ ctx }) => {
+  const { pathname, err } = ctx;
   const res = await fetch(`${process.env.BASE_URL}/api/contact`);
   const json = await res.json();
-
-  return { data: json };
+  return { data: json, pathname, err };
 };

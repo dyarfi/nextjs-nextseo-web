@@ -8,6 +8,7 @@ import { DefaultSeo } from 'next-seo';
 
 export default function About(props) {
   const {
+    pathname,
     data: { title, description, header, slug, block_top = {} },
   } = props;
 
@@ -16,7 +17,7 @@ export default function About(props) {
   return (
     <>
       <DefaultSeo title={title} description={description} />
-      <LayoutDefault>
+      <LayoutDefault pathname={pathname}>
         <BlockMainTop {...{ data: block_top }} />
         <section className="container" id="learn">
           <div className="row mt-5">
@@ -75,9 +76,9 @@ export default function About(props) {
   );
 }
 
-About.getInitialProps = async (ctx) => {
+About.getInitialProps = async ({ ctx }) => {
+  const { pathname, err } = ctx;
   const res = await fetch(`${process.env.BASE_URL}/api/about`);
   const json = await res.json();
-
-  return { data: json };
+  return { data: json, pathname, err };
 };
