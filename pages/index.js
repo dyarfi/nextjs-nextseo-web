@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /** reactstrap */
-import { Container, Col, Row, Alert } from "reactstrap";
+import { Row, Alert } from "reactstrap";
 
 /** components */
 import LayoutDefault from "../layouts/Default";
@@ -15,13 +15,13 @@ import PackageCardList from "../components/cards/packages/PackageCardList";
 /** seo */
 import { DefaultSeo } from "next-seo";
 
+const BASE_URL = process.env.BASE_URL;
+
 function Home(props) {
   const {
     pathname,
     data: { title, description, packages = [], services = [], block_top = {} },
   } = props;
-
-  const disc = 4;
 
   const [visible, setVisible] = useState(true);
 
@@ -30,7 +30,7 @@ function Home(props) {
   const seos = {
     title,
     description: description.replace(/(<([^>]+)>)/gi),
-    canonical: "https://www.canonical.ie/",
+    canonical: `${BASE_URL}`,
     openGraph: {
       url: 'https://www.url.ie/a',
       title: title,
@@ -51,14 +51,14 @@ function Home(props) {
         { url: 'https://www.example.ie/og-image-03.jpg' },
         { url: 'https://www.example.ie/og-image-04.jpg' },
       ],
-      site_name: 'SiteName',
+      // site_name: 'SiteName',
     },
-    twitter:
-    {
-      handle: '@handle',
-      site: '@site',
-      cardType: 'summary_large_image',
-    }
+    // twitter:
+    // {
+    //   handle: '@handle',
+    //   site: '@site',
+    //   cardType: 'summary_large_image',
+    // }
   };
 
   return (

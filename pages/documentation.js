@@ -15,4 +15,4 @@ Documentation.getInitialProps = async ({ ctx }) => {
   return { data: json, pathname, err };
 };
 
-export default Home;
+export default Documentation;

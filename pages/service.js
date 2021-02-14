@@ -6,8 +6,13 @@ import LayoutDefault from "../layouts/Default";
 // import BlockMainTop from "../components/blocks/BlockMainTop";
 import BlockMainBottom from "../components/blocks/BlockMainBottom";
 
+/** cards */
+import ServiceCardBigList from "../components/cards/services/ServiceCardBigList";
+
 /** seo */
 import { DefaultSeo } from "next-seo";
+
+const BASE_URL = process.env.BASE_URL;
 
 export default function Service(props) {
   const {
@@ -15,55 +20,43 @@ export default function Service(props) {
     data: { title, description, slug, services, block_top = {} },
   } = props;
 
-  function renderServices() {
-    return services.map((service, idx) => {
-      const classBoxService = idx % 2 == 1 ? 'service-list__body_right' : 'service-list__body_left';
-      return (
-        <Row key={`k-${idx}`} className="no-gutters py-5 position-relative">
-          <div className="service-list__image">
-            <div data-filter="overlay-dark">
-              <img
-                src={`${service.image}`}
-                className="img-fluid"
-                alt={`${service.name}`}
-              />
-            </div>
-          </div>
-          <Col
-            xs="9"
-            lg="6"
-            className={classBoxService}
-          >
-            <div className="service-list__content">
-              <div className="service-list__overlay">
-                <div className="service-list__caption">
-                  <h3 className="service-list__headline">{service.name}</h3>
-                  <p
-                    className="text-justify"
-                    dangerouslySetInnerHTML={{ __html: service.description }}
-                  ></p>
-                  <a
-                    href={`${service.image}`}
-                    className="service-list__link btn btn-outline-secondary btn-lg"
-                    data-fancybox="img-menus"
-                    data-caption={`${service.name}`}
-                  >
-                    <h6 className="font-weight-bolder p-0 m-0 text-uppercase">
-                      Read More
-                    </h6>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </Col>
-        </Row>
-      );
-    });
-  }
+  const seos = {
+    title,
+    description: description.replace(/(<([^>]+)>)/gi),
+    canonical: `${BASE_URL}${pathname}`,
+    openGraph: {
+      url: 'https://www.url.ie/a',
+      title: title,
+      description: description.replace(/(<([^>]+)>)/gi),
+      images: [
+        {
+          url: 'https://www.example.ie/og-image-01.jpg',
+          width: 800,
+          height: 600,
+          alt: 'Og Image Alt',
+        },
+        {
+          url: 'https://www.example.ie/og-image-02.jpg',
+          width: 900,
+          height: 800,
+          alt: 'Og Image Alt Second',
+        },
+        { url: 'https://www.example.ie/og-image-03.jpg' },
+        { url: 'https://www.example.ie/og-image-04.jpg' },
+      ],
+      // site_name: 'SiteName',
+    },
+    // twitter:
+    // {
+    //   handle: '@handle',
+    //   site: '@site',
+    //   cardType: 'summary_large_image',
+    // }
+  };
 
   return (
     <>
-      <DefaultSeo title={title} description={description} />
+      <DefaultSeo {...seos} />
       <LayoutDefault pathname={pathname}>
         {/* <BlockMainTop /> */}
         <div className="bg-light py-lg-4">
@@ -71,7 +64,9 @@ export default function Service(props) {
             <div className="mx-auto"><h2 className="headline-center">Our Services</h2></div>
           </Row>
           </Container>
-          <Container>{renderServices()}</Container>
+          <Container>
+            <ServiceCardBigList itemList={services} />
+          </Container>
         </div>
         <BlockMainBottom />
       </LayoutDefault>
