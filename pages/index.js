@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
 /** reactstrap */
-import { Row, Alert } from "reactstrap";
+import { Col, Row, Alert } from 'reactstrap';
 
 /** components */
-import LayoutDefault from "../layouts/Default";
-import BlockMainTop from "../components/blocks/BlockMainTop";
-import BlockMainBottom from "../components/blocks/BlockMainBottom";
+import LayoutDefault from '../layouts/Default';
+import BlockMainTop from '../components/blocks/BlockMainTop';
+import BlockMainBottom from '../components/blocks/BlockMainBottom';
 
 /** cards */
-import ServiceCardList from "../components/cards/services/ServiceCardList";
-import PackageCardList from "../components/cards/packages/PackageCardList";
+import ServiceCardList from '../components/cards/services/ServiceCardList';
+import PackageCardList from '../components/cards/packages/PackageCardList';
 
 /** seo */
-import { DefaultSeo } from "next-seo";
+import { DefaultSeo } from 'next-seo';
 
 const BASE_URL = process.env.BASE_URL;
 
@@ -29,12 +29,12 @@ function Home(props) {
 
   const seos = {
     title,
-    description: description.replace(/(<([^>]+)>)/gi),
+    description: description.replace(/(<([^>]+)>)/gi, ''),
     canonical: `${BASE_URL}`,
     openGraph: {
       url: 'https://www.url.ie/a',
       title: title,
-      description: description.replace(/(<([^>]+)>)/gi),
+      description: description.replace(/(<([^>]+)>)/gi, ''),
       images: [
         {
           url: 'https://www.example.ie/og-image-01.jpg',
@@ -66,9 +66,6 @@ function Home(props) {
       <DefaultSeo {...seos} />
       <LayoutDefault pathname={pathname}>
         <BlockMainTop {...{ data: block_top }} />
-        <Alert color="primary" isOpen={visible} toggle={onDismiss} fade={false}>
-          I am a primary alert and I can be dismissed without animating!
-        </Alert>
         <section className="container">
           <Row>
             <div className="mx-auto">
@@ -101,6 +98,7 @@ Home.getInitialProps = async ({ ctx }) => {
   const { pathname, err } = ctx;
   const res = await fetch(`${process.env.BASE_URL}/api`);
   const json = await res.json();
+  // console.log(process.env.NAME);
   return { data: json, pathname, err };
 };
 

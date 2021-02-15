@@ -1,14 +1,21 @@
-import React from "react";
+import React from 'react';
 
 /** reactstrap */
-import { Col } from "reactstrap";
+import { Col } from 'reactstrap';
 
-function PackageCardList (props)  {
+function PackageCardList(props) {
   const { itemList } = props;
   const disc = 4;
   return itemList.map((item, idx) => {
     return (
-      <Col xs="12" sm="6" md="6" lg="3" key={`p-${idx}`} className="position-relative mx-auto">
+      <Col
+        xs="12"
+        sm="6"
+        md="6"
+        lg="3"
+        key={`p-${idx}`}
+        className="position-relative mx-auto"
+      >
         <div className="card mb-4">
           <div className="card-header">
             <h4 className="card-title m-0 p-0 font-weight-bolder text-secondary">
@@ -19,7 +26,7 @@ function PackageCardList (props)  {
             <p className="card-text">{item.description}</p>
             <span className="font-lead-base font-weight-bold text-muted">
               {disc}0% Off!
-              </span>
+            </span>
             <div className="promotion-promo">$ {item.price}</div>
             <div className="promotion-price">
               <div className="promotion-price-desc">Now</div>
@@ -31,7 +38,7 @@ function PackageCardList (props)  {
           <div className="card-footer">
             <a href="#" className="btn btn-warning">
               Order
-              </a>
+            </a>
           </div>
         </div>
       </Col>

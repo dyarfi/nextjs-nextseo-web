@@ -1,12 +1,13 @@
-import React from "react";
+import React from 'react';
 /** Reactstrap */
-import { Col, Row } from "reactstrap";
+import { Col, Row } from 'reactstrap';
 
 function ServiceCardBigList(props) {
   const { itemList } = props;
 
-  return (itemList.map((item, idx) => {
-    const classBoxService = idx % 2 == 1 ? 'service-list__body_right' : 'service-list__body_left';
+  return itemList.map((item, idx) => {
+    const classBoxService =
+      idx % 2 == 1 ? 'service-list__body_right' : 'service-list__body_left';
     return (
       <Row key={`k-${idx}`} className="no-gutters py-5 position-relative">
         <div className="service-list__image">
@@ -18,11 +19,7 @@ function ServiceCardBigList(props) {
             />
           </div>
         </div>
-        <Col
-          xs="9"
-          lg="6"
-          className={classBoxService}
-        >
+        <Col xs="9" lg="6" className={classBoxService}>
           <div className="service-list__content">
             <div className="service-list__overlay">
               <div className="service-list__caption">
@@ -47,7 +44,7 @@ function ServiceCardBigList(props) {
         </Col>
       </Row>
     );
-  }));
+  });
 }
 
 export default ServiceCardBigList;

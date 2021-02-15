@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-import NavLink from "../ui/NavLink";
+import React, { useState } from 'react';
+import Image from 'next/image';
+import NavLink from '../ui/NavLink';
 
 /* routes */
-import ROUTES from "../../config/routes";
+import ROUTES from '../../config/routes';
 
 /* Components */
 // import DarkModeToggle from "../DarkModeToggle";
@@ -19,15 +20,24 @@ function Header(props) {
     setIsOpen(false);
   };
 
-  const classOpen = !isOpen ? "hidden" : "";
-  // console.log(props);
+  const classOpen = !isOpen ? 'hidden' : '';
+
   return (
     <header>
-      <nav className="navbar navbar-expand-md navbar-light shadow-sm">
+      <nav className="navbar navbar-expand-md navbar-light shadow-sm py-0">
         <div className="container-fluid font-weight-bold">
-          <a className="navbar-brand ml-3" href="/">
-            <i className="text-warning ">//</i>{" "}
-            <span className="text-success">IOTA Connect</span>
+          <a className="navbar-brand ml-0 pt-2 pb-0 mb-0" href="/">
+            {/* <i className="text-warning ">//</i>{" "} */}
+            {/* <span className="text-success">IOTA Connect</span> */}
+            <Image
+              src="/xconnect.jpg"
+              alt="Logo"
+              width={168}
+              height={64}
+              layout="fixed"
+              objectFit="contain"
+              style={{ verticalAlign: 'middle' }}
+            />
           </a>
           <button
             className="navbar-toggler text-white"
@@ -42,24 +52,34 @@ function Header(props) {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto text-right">
-              <li className={`nav-item ${ pathname === '/' ? `active`:``}`}>
+              <li className={`nav-item ${pathname === '/' ? `active` : ``}`}>
                 <NavLink {...{ href: ROUTES.INDEX.href, as: ROUTES.INDEX.url }}>
                   <a className="nav-link">Home</a>
                 </NavLink>
               </li>
-              <li className={`nav-item ${ pathname === '/about' ? `active`:``}`}>
+              <li
+                className={`nav-item ${pathname === '/about' ? `active` : ``}`}
+              >
                 <NavLink {...{ href: ROUTES.ABOUT.href, as: ROUTES.ABOUT.url }}>
                   <a className="nav-link">About</a>
                 </NavLink>
               </li>
-              <li className={`nav-item ${ pathname === '/service' ? `active`:``}`}>
+              <li
+                className={`nav-item ${
+                  pathname === '/service' ? `active` : ``
+                }`}
+              >
                 <NavLink
                   {...{ href: ROUTES.SERVICE.href, as: ROUTES.SERVICE.url }}
                 >
                   <a className="nav-link">Service</a>
                 </NavLink>
               </li>
-              <li className={`nav-item ${ pathname === '/contact' ? `active`:``}`}>
+              <li
+                className={`nav-item ${
+                  pathname === '/contact' ? `active` : ``
+                }`}
+              >
                 <NavLink
                   {...{ href: ROUTES.CONTACT.href, as: ROUTES.CONTACT.url }}
                 >

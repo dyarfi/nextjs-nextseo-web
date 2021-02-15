@@ -2,16 +2,16 @@
 @charset "utf-8";
 
 /* Fonts */
-@import url("https://fonts.googleapis.com/css?family=Nothing+You+Could+Do%7CRaleway:100,200,300,400,600,700,800,900%7CMontserrat:100,200,300,400,500,600,700,800,900");
+@import url('https://fonts.googleapis.com/css?family=Nothing+You+Could+Do%7CRaleway:100,200,300,400,600,700,800,900%7CMontserrat:100,200,300,400,500,600,700,800,900');
 
 /*
 |--------------------------------------------------------------------------
 | Base Variables
 |--------------------------------------------------------------------------
 */
-$font-family-base: "Raleway", sans-serif;
-$font-family-head-base: "Nothing You Could Do", cursive; // Custom
-$font-family-lead-base: "Montserrat", sans-serif; // Custom
+$font-family-base: 'Raleway', sans-serif;
+$font-family-head-base: 'Nothing You Could Do', cursive; // Custom
+$font-family-lead-base: 'Montserrat', sans-serif; // Custom
 
 // Font Weight Base
 $font-weight-light: 100 !default;
@@ -41,11 +41,11 @@ $display-font-sizes: (
 $display-font-weight: 300;
 
 // $display-line-height: $headings-line-height;
-@import "variables"; // --- Vendors Variables
+@import 'variables'; // --- Vendors Variables
 // @import "bootstrap/scss/bootstrap-grid"; // --- Vendors Bootstrap 4
 // @import "bootstrap/scss/bootstrap-reboot"; // --- Vendors Bootstrap 4
 // @import "bootstrap/scss/bootstrap"; // --- Vendors Bootstrap 4
-@import "node_modules/bootstrap/scss/bootstrap"; // --- Vendors Bootstrap 4
+@import 'node_modules/bootstrap/scss/bootstrap'; // --- Vendors Bootstrap 4
 
 // Background variables light
 $light-primary: lighten($primary, 25%);
@@ -151,7 +151,7 @@ $dark-theme: darken($theme, 32%);
 /*! --- Background Overlay Filters --- */
 // Placeholder
 %overlay {
-  content: " ";
+  content: ' ';
   position: absolute;
   z-index: 0;
   top: 0;
@@ -170,33 +170,33 @@ $dark-theme: darken($theme, 32%);
     z-index: -1;
   }
 }
-[data-filter="overlay-dark"] {
+[data-filter='overlay-dark'] {
   &:before {
     background-color: rgba($black, 0.5);
   }
 }
-[data-filter="overlay-mute"] {
+[data-filter='overlay-mute'] {
   &:before {
     background-color: rgba($black, 0.25);
   }
   @extend %overlay-parent;
 }
-[data-filter="overlay-warning"] {
+[data-filter='overlay-warning'] {
   &:before {
     background-color: rgba($dark-warning, 0.5);
   }
 }
-[data-filter="overlay-secondary"] {
+[data-filter='overlay-secondary'] {
   &:before {
     background-color: rgba($dark-secondary, 0.5);
   }
 }
-[data-filter="overlay-theme"] {
+[data-filter='overlay-theme'] {
   &:before {
     background-color: rgba($dark-theme, 0.5);
   }
 }
-[data-filter="overlay-dark"] {
+[data-filter='overlay-dark'] {
   > * {
     position: relative;
   }
@@ -205,7 +205,7 @@ $dark-theme: darken($theme, 32%);
     @extend %overlay;
   }
 }
-[data-filter="overlay-mute"] {
+[data-filter='overlay-mute'] {
   > * {
     position: relative;
   }
@@ -214,7 +214,7 @@ $dark-theme: darken($theme, 32%);
     @extend %overlay;
   }
 }
-[data-filter="overlay-warning"] {
+[data-filter='overlay-warning'] {
   > * {
     position: relative;
   }
@@ -223,7 +223,7 @@ $dark-theme: darken($theme, 32%);
     @extend %overlay;
   }
 }
-[data-filter="overlay-secondary"] {
+[data-filter='overlay-secondary'] {
   > * {
     position: relative;
   }
@@ -232,7 +232,7 @@ $dark-theme: darken($theme, 32%);
     @extend %overlay;
   }
 }
-[data-filter="overlay-theme"] {
+[data-filter='overlay-theme'] {
   > * {
     position: relative;
   }
@@ -263,7 +263,7 @@ $dark-theme: darken($theme, 32%);
     position: absolute;
     bottom: 0;
     left: 0;
-    content: "";
+    content: '';
     // Sizes
     height: 4px;
     width: 25%;
@@ -284,7 +284,7 @@ $dark-theme: darken($theme, 32%);
       bottom: 10%;
       display: block;
       margin: auto;
-      content: "";
+      content: '';
       // Sizes
       height: 10px;
       width: 100%;
@@ -296,7 +296,7 @@ $dark-theme: darken($theme, 32%);
   position: relative;
   margin-bottom: 2rem;
   &:after {
-    content: "";
+    content: '';
     // Positions
     position: absolute;
     bottom: -72%;
@@ -314,7 +314,7 @@ $dark-theme: darken($theme, 32%);
     position: relative;
     overflow: hidden;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       top: 10%;
       bottom: 0;
@@ -323,7 +323,7 @@ $dark-theme: darken($theme, 32%);
       transform: rotate(-50deg);
       height: 510px;
       opacity: 0.3;
-      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC");
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC');
       background-position: top center;
       background-repeat: repeat;
       background-attachment: scroll;
@@ -360,7 +360,7 @@ $dark-theme: darken($theme, 32%);
         top: 50%;
         margin-top: -30px;
         border: solid transparent;
-        content: " ";
+        content: ' ';
         height: 0;
         width: 0;
         position: absolute;
@@ -402,7 +402,7 @@ $dark-theme: darken($theme, 32%);
     position: relative;
     overflow: hidden;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       right: -5%;
       top: 10%;
@@ -412,7 +412,7 @@ $dark-theme: darken($theme, 32%);
       transform: rotate(-50deg);
       height: 200px;
       opacity: 0.3;
-      background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC");
+      background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC');
       background-position: top center;
       background-repeat: repeat;
       background-attachment: scroll;
@@ -446,7 +446,7 @@ $dark-theme: darken($theme, 32%);
       position: absolute;
       bottom: 0;
       left: 0;
-      content: "";
+      content: '';
       height: 3px;
       width: 25%;
       background-color: #333333;
@@ -466,7 +466,7 @@ $dark-theme: darken($theme, 32%);
   position: relative;
   overflow: hidden;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     left: -5%;
     top: 10%;
@@ -476,7 +476,7 @@ $dark-theme: darken($theme, 32%);
     transform: rotate(-50deg);
     height: 510px;
     opacity: 0.3;
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC");
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC');
     background-position: top center;
     background-repeat: repeat;
     background-attachment: scroll;
@@ -518,7 +518,7 @@ $dark-theme: darken($theme, 32%);
       }
       @include media-breakpoint-up(md) {
         &:before {
-          content: "";
+          content: '';
           position: absolute;
           z-index: -1;
           height: 2px;
@@ -551,8 +551,9 @@ $dark-theme: darken($theme, 32%);
 }
 // Navbar Brand
 .navbar-brand {
-  font-size: 1.35rem;
-  font-weight: 900;
+  font-size: inherit;
+  // font-size: 1.35rem;
+  // font-weight: 900;
   padding-top: 0;
   padding-bottom: 0;
   margin-top: 0;
@@ -568,7 +569,7 @@ $dark-theme: darken($theme, 32%);
   top: 0;
   z-index: -1;
   &:before {
-    content: "";
+    content: '';
     // Fonts
     font-weight: $font-weight-bold;
     // Positioning
@@ -580,7 +581,7 @@ $dark-theme: darken($theme, 32%);
     height: 180px;
     opacity: 0.2;
     // Backgrounds
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC");
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC');
     background-position: top center;
     background-repeat: repeat;
     background-attachment: scroll;
@@ -688,7 +689,7 @@ $dark-theme: darken($theme, 32%);
     padding-top: 3rem;
     padding-bottom: 3rem;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       left: 0;
       top: -15%;
@@ -696,7 +697,7 @@ $dark-theme: darken($theme, 32%);
       width: 56%;
       height: 70px;
       opacity: 0.5;
-      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC")
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC')
         repeat;
     }
   }
@@ -705,7 +706,7 @@ $dark-theme: darken($theme, 32%);
     padding-top: 3rem;
     padding-bottom: 3rem;
     &:before {
-      content: "";
+      content: '';
       position: absolute;
       right: 0;
       bottom: -8%;
@@ -713,7 +714,7 @@ $dark-theme: darken($theme, 32%);
       width: 56%;
       height: 70px;
       opacity: 0.5;
-      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC")
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC')
         repeat;
     }
   }
@@ -724,7 +725,7 @@ $dark-theme: darken($theme, 32%);
       position: relative;
       overflow: hidden;
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         right: -10%;
         top: 0;
@@ -734,7 +735,7 @@ $dark-theme: darken($theme, 32%);
         transform: rotate(-50deg);
         height: 180px;
         opacity: 0.45;
-        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC");
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC');
         background-position: top center;
         background-repeat: repeat;
         background-attachment: scroll;
@@ -776,7 +777,7 @@ $dark-theme: darken($theme, 32%);
   position: relative;
   overflow: hidden;
   &:before {
-    content: "";
+    content: '';
     position: absolute;
     left: -5%;
     top: 10%;
@@ -786,7 +787,7 @@ $dark-theme: darken($theme, 32%);
     transform: rotate(-50deg);
     height: 510px;
     opacity: 0.35;
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC");
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAANklEQVQoU2NkIBIwEqmOgXyFU6dObQDZkp2dDaZhAMVEmCKYJLJi8hSCTCLKanwhQL6vcZkKAMbtEAuAaq67AAAAAElFTkSuQmCC');
     background-position: top center;
     background-repeat: repeat;
     background-attachment: scroll;

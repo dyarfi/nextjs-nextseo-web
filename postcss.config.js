@@ -38,12 +38,15 @@ module.exports = {
           './pages/**/*.{js,jsx,ts,tsx}',
         ],
         keyframes: true,
+        variables: true,
+        rejected: true,
         defaultExtractor(content) {
           const contentWithoutStyleBlocks = content.replace(/<style[^]+?<\/style>/gi, '')
           return contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || []
         },
-        safelist: [/col-[a-z-0-9]+/g, /alert-[a-z-0-9]+/g, /close+/g],
         // whitelist: ['col'],
+        // whitelist: [/col-[a-z-0-9]+/g],
+        safelist: [/col-[a-z\-0-9]+/gi, /alert-[a-z-0-9]+/g, /close+/g],
         whitelistPatterns: [/-(leave|enter|appear)(|-(to|from|active))$/, /^(?!(|.*?:)cursor-move).+-move$/, /^router-link(|-exact)-active$/],
       }
     ],

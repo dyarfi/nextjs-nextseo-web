@@ -1,20 +1,22 @@
+const BASE_URL = process.env.BASE_URL;
+
 export default {
-  titleTemplate: " %s | Your Website",
-  title: "Your Default Headline Title",
-  defaultTitle: "Your Default Title",
-  description: "Description of your website",
+  titleTemplate: '%s | Your Website',
+  title: 'Your Default Headline Title',
+  defaultTitle: 'Your Default Title',
+  description: 'Description of your website',
   openGraph: {
-    type: "website",
-    locale: "en_IE",
-    // url: "https://www.url.ie/",
-    // site_name: "SiteName",
+    type: 'website',
+    locale: 'en_IE',
+    url: BASE_URL,
+    // site_name: 'SiteName',
   },
   twitter: {
-    handle: "@dyarfi",
-    site: "@dyarfi",
-    cardType: "summary_large_image",
+    handle: '@dyarfi',
+    site: '@dyarfi',
+    cardType: 'summary_large_image',
   },
-  robotsProps: {
+  robots: {
     nosnippet: true,
     notranslate: true,
     noimageindex: true,

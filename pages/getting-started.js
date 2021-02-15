@@ -6,14 +6,17 @@ import BlockMainBottom from '../components/blocks/BlockMainBottom';
 /** seo */
 import { DefaultSeo } from 'next-seo';
 
-function Documentation() {
+function GettingStarted(props) {
+  // console.log(props);
   return (
     <>
       <DefaultSeo />
       <LayoutDefault>
         {/* <BlockMainTop /> */}
         <div className="container my-3 py-5 contact">
-          <h1 className="headline font-weight-bold uppercase">Documentation</h1>
+          <h1 className="headline font-weight-bold uppercase">
+            Getting Started
+          </h1>
           <p>
             Page of documentation Cillum occaecat ut laborum id. Pariatur amet
             sint dolor id ea consectetur Lorem quis enim ipsum cupidatat velit
@@ -90,12 +93,11 @@ function Documentation() {
   );
 }
 
-// Documentation.getInitialProps = async ({ ctx }) => {
-// const { pathname, err } = ctx;
-// const res = await fetch(`${process.env.BASE_URL}/api`);
-// const json = await res.json();
-// const json = { test: 'hallo' };
-// return { data: json, pathname, err };
-// };
+GettingStarted.getInitialProps = async ({ ctx }) => {
+  const { pathname, err } = ctx;
+  const res = await fetch(`${process.env.BASE_URL}/api/global`);
+  const json = await res.json();
+  return { data: json, pathname, err };
+};
 
-export default Documentation;
+export default GettingStarted;
