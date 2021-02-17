@@ -10,9 +10,13 @@ function BlockMainBottom(props) {
             <form className="form-inline">
               <div className="form-row">
                 <div className="col-12">
+                  <label htmlFor="subscribe" className="sr-only">
+                    Subscribe
+                  </label>
                   <input
                     type="text"
                     name="subscribe"
+                    id="subscribe"
                     placeholder="your@email.com"
                     className="form-control"
                   />

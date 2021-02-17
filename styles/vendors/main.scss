@@ -45,7 +45,7 @@ $display-font-weight: 300;
 // @import "bootstrap/scss/bootstrap-grid"; // --- Vendors Bootstrap 4
 // @import "bootstrap/scss/bootstrap-reboot"; // --- Vendors Bootstrap 4
 // @import "bootstrap/scss/bootstrap"; // --- Vendors Bootstrap 4
-@import 'node_modules/bootstrap/scss/bootstrap'; // --- Vendors Bootstrap 4
+@import 'bootstrap/scss/bootstrap'; // --- Vendors Bootstrap 4
 
 // Background variables light
 $light-primary: lighten($primary, 25%);
@@ -762,6 +762,9 @@ $dark-theme: darken($theme, 32%);
       padding: 4rem 2rem;
       .display-1 {
         font-size: 3rem;
+      }
+      .display-3 {
+        @include font-size(2rem);
       }
     }
   }

@@ -63,9 +63,9 @@ export default function About(props) {
             <div className="boxed-bottom">
               <div className="boxed-bottom-left col-12 col-md-6 col-lg-4">
                 <div className="boxed-bottom-content">
-                  <h4 className="font-weight-bolder text-uppercase headline text-muted">
+                  <h3 className="font-weight-bold text-uppercase headline text-muted">
                     Lorem ipsum dolor sit amet.
-                  </h4>
+                  </h3>
                   <h4>Learn More About IOTA Connect</h4>
                   <p className="text-justify">
                     IOTA Connect is an IoT analytics platform service that
@@ -82,9 +82,9 @@ export default function About(props) {
               </div>
               <div className="boxed-bottom-right col-12 col-md-6 col-lg-4">
                 <div className="boxed-bottom-content">
-                  <h4 className="font-weight-bolder text-uppercase headline text-muted">
+                  <h3 className="font-weight-bold text-uppercase headline text-muted">
                     Lorem ipsum dolor sit amet.
-                  </h4>
+                  </h3>
                   <h4>What is IoT?</h4>
                   <p className="text-justify">
                     Internet of Things (IoT) describes an emerging trend where a
@@ -101,9 +101,9 @@ export default function About(props) {
               </div>
               <div className="boxed-bottom-left col-12 col-md-6 col-lg-4">
                 <div className="boxed-bottom-content">
-                  <h4 className="font-weight-bolder text-uppercase headline text-muted">
+                  <h3 className="font-weight-bold text-uppercase headline text-muted">
                     Lorem ipsum dolor sit amet.
-                  </h4>
+                  </h3>
                   <h4>Learn More About IOTA Connect</h4>
                   <p className="text-justify">
                     IOTA Connect is an IoT analytics platform service that
