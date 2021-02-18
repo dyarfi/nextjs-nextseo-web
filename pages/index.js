@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /** reactstrap */
-import { Col, Row, Alert } from 'reactstrap';
+import { Container, Col, Row, Alert } from 'reactstrap';
 
 /** components */
 import LayoutDefault from '../layouts/Default';
@@ -82,11 +82,11 @@ function Home(props) {
               <h3 className="headline-center">Our Packages</h3>
             </div>
           </Row>
-          <div className="text-center my-5 py-5">
-            <div className="card-deck no-gutters">
+          <Container className="text-center mt-3 mb-5">
+            <Row>
               <PackageCardList itemList={packages} />
-            </div>
-          </div>
+            </Row>
+          </Container>
         </section>
         <BlockMainBottom />
       </LayoutDefault>

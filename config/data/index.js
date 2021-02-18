@@ -64,14 +64,14 @@ export default {
       label: 'Hot Plate',
       tag: 'default',
     },
-    {
-      category: 'dinner',
-      image: 'assets/img/menu768x768px2.jpg',
-      title: 'Enterprise Edition Package',
-      description: 'All features with cloud storage and Full support.',
-      price: '10',
-      label: 'Popular',
-      tag: 'warning',
-    },
+    // {
+    //   category: 'dinner',
+    //   image: 'assets/img/menu768x768px2.jpg',
+    //   title: 'Enterprise Edition Package',
+    //   description: 'All features with cloud storage and Full support.',
+    //   price: '10',
+    //   label: 'Popular',
+    //   tag: 'warning',
+    // },
   ],
 };

@@ -1,49 +1,60 @@
 import React from 'react';
 
 /** reactstrap */
-import { Col } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 
 function PackageCardList(props) {
   const { itemList } = props;
   const disc = 4;
-  return itemList.map((item, idx) => {
-    return (
-      <Col
-        xs="12"
-        sm="6"
-        md="6"
-        lg="3"
-        key={`p-${idx}`}
-        className="position-relative mx-auto"
-      >
-        <div className="card mb-4">
-          <div className="card-header">
-            <h4 className="card-title m-0 p-0 font-weight-bolder text-secondary">
-              {item.title}
-            </h4>
-          </div>
-          <div className="card-body text-left">
-            <p className="card-text">{item.description}</p>
-            <span className="font-lead-base font-weight-bold text-muted">
-              {disc}0% Off!
-            </span>
-            <div className="promotion-promo">$ {item.price}</div>
-            <div className="promotion-price">
-              <div className="promotion-price-desc">Now</div>
-              <div className="promotion-price-text">
-                $ {item.price - (disc % 100)}
+  return (
+    <div className="card-portrait">
+      <div className="card-portrait-row">
+        {itemList.map((item, idx) => {
+          return (
+            <Col
+              key={`p-${idx}`}
+              xs="12"
+              md="6"
+              lg="4"
+              className="card-portrait-col"
+            >
+              <div className="card-portrait-content ilist-c h-100">
+                <Col xs="12" className="card-portrait-image align-self-center">
+                  <div className="text-center">
+                    <img
+                      src="https://placeimg.com/250/250/people"
+                      className="img-thumbnail rounded-circle img-fluid w-50"
+                    />
+                    <h5 className="mt-2 text-muted">
+                      <a href="employee-single.html">{item.title}</a>
+                    </h5>
+                  </div>
+                </Col>
+                <Col xs="12" className="align-self-center text-center">
+                  <h6>{disc}0% Off!</h6>
+                  <p className="border-bottom border-top text-secondary p-3">
+                    {item.description}
+                  </p>
+                  <Col className="d-flex justify-content-between">
+                    <a href="#" className="btn btn-md btn-warning">
+                      <span className="font-weight-bold h4">
+                        $ <s>{item.price}</s>{' '}
+                      </span>
+                    </a>
+                    <a href="#" className="btn btn-md btn-outline-success">
+                      <span className="font-weight-bold h4">
+                        $ {item.price - (disc % 100)}
+                      </span>
+                    </a>
+                  </Col>
+                </Col>
               </div>
-            </div>
-          </div>
-          <div className="card-footer">
-            <a href="#" className="btn btn-warning">
-              Order
-            </a>
-          </div>
-        </div>
-      </Col>
-    );
-  });
+            </Col>
+          );
+        })}
+      </div>
+    </div>
+  );
 }
 
 export default PackageCardList;

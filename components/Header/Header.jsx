@@ -5,9 +5,6 @@ import NavLink from '../ui/NavLink';
 /* routes */
 import ROUTES from '../../config/routes';
 
-/* Components */
-// import DarkModeToggle from "../DarkModeToggle";
-
 function Header(props) {
   const { pathname } = props;
   const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +50,13 @@ function Header(props) {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ml-auto text-right">
               <li className={`nav-item ${pathname === '/' ? `active` : ``}`}>
-                <NavLink {...{ href: ROUTES.INDEX.href, as: ROUTES.INDEX.url }}>
+                <NavLink
+                  activeClassName={pathname}
+                  {...{
+                    href: ROUTES.INDEX.href,
+                    as: ROUTES.INDEX.url,
+                  }}
+                >
                   <a className="nav-link">Home</a>
                 </NavLink>
               </li>
@@ -70,6 +73,7 @@ function Header(props) {
                 }`}
               >
                 <NavLink
+                  activeClassName={pathname}
                   {...{ href: ROUTES.SERVICE.href, as: ROUTES.SERVICE.url }}
                 >
                   <a className="nav-link">Service</a>
@@ -81,6 +85,7 @@ function Header(props) {
                 }`}
               >
                 <NavLink
+                  activeClassName={pathname}
                   {...{ href: ROUTES.CONTACT.href, as: ROUTES.CONTACT.url }}
                 >
                   <a className="nav-link">Contact</a>

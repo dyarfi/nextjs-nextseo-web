@@ -4,13 +4,8 @@ import Link from 'next/link';
 
 /* routes */
 import ROUTES from '../../config/routes';
-/* Components */
-// import DarkModeToggle from "../DarkModeToggle";
 
 function Footer(props) {
-  // console.log(ROUTES.ABOUT.href);
-  // return false;
-
   return (
     <footer>
       <div className="bg-light footer-holder">
