@@ -2,6 +2,89 @@
 
 Setting up your Next.js website SEO
 
+## Config
+
+Create a file under the name next-seo.config.js:
+
+```javascript
+const BASE_URL = process.env.BASE_URL;
+export default {
+  titleTemplate: '%s | Your Website',
+  title: 'Your Default Headline Title',
+  defaultTitle: 'Your Default Title',
+  description: 'Description of your website',
+  openGraph: {
+    type: 'website',
+    locale: 'en_IE',
+    url: BASE_URL,
+    site_name: 'SiteName',
+  },
+  twitter: {
+    handle: '@SiteName',
+    site: '@SiteName',
+    cardType: 'summary_large_image',
+  },
+  robots: {
+    nosnippet: true,
+    notranslate: true,
+    noimageindex: true,
+    noarchive: true,
+    maxSnippet: -1,
+    maxImagePreview: 'none',
+    maxVideoPreview: -1,
+  },
+};
+```
+
+Put an import on `next-seo` in your pages and set up the SEO objects, and display it in components.
+
+```javascript
+/** seo */
+import { DefaultSeo } from 'next-seo';
+
+function Home(props) {
+  const seos = {
+    title,
+    description: description.replace(/(<([^>]+)>)/gi, ''),
+    canonical: `${BASE_URL}`,
+    openGraph: {
+      url: 'https://www.url.ie/a',
+      title: title,
+      description: description.replace(/(<([^>]+)>)/gi, ''),
+      images: [
+        {
+          url: 'https://www.example.ie/og-image-01.jpg',
+          width: 800,
+          height: 600,
+          alt: 'Og Image Alt',
+        },
+        {
+          url: 'https://www.example.ie/og-image-02.jpg',
+          width: 900,
+          height: 800,
+          alt: 'Og Image Alt Second',
+        },
+        { url: 'https://www.example.ie/og-image-03.jpg' },
+        { url: 'https://www.example.ie/og-image-04.jpg' },
+      ],
+      site_name: 'SiteName',
+    },
+    twitter: {
+      handle: '@handle',
+      site: '@site',
+      cardType: 'summary_large_image',
+    },
+  };
+
+  return (
+    <>
+      <DefaultSeo {...seos} />
+      <LayoutDefault props={props}></LayoutDefault>
+    </>
+  );
+}
+```
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
