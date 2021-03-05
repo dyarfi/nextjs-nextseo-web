@@ -5,6 +5,10 @@ import BlockMainBottom from '../components/blocks/BlockMainBottom';
 
 /** seo */
 import { DefaultSeo } from 'next-seo';
+/** next */
+import ENV from '../config/env';
+/** urls */
+const { BASE_URL = '', BASE_API_URL = '' } = ENV;
 
 function GettingStarted(props) {
   // console.log(props);
@@ -95,7 +99,7 @@ function GettingStarted(props) {
 
 GettingStarted.getInitialProps = async ({ ctx }) => {
   const { pathname, err } = ctx;
-  const res = await fetch(`${process.env.BASE_URL}/api/global`);
+  const res = await fetch(`${BASE_API_URL}/api/global`);
   const json = await res.json();
   return { data: json, pathname, err };
 };

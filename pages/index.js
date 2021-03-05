@@ -14,8 +14,10 @@ import PackageCardList from '../components/cards/packages/PackageCardList';
 
 /** seo */
 import { DefaultSeo } from 'next-seo';
-
-const BASE_URL = process.env.BASE_URL;
+/** next */
+import ENV from '../config/env';
+/** urls */
+const { BASE_URL = '', BASE_API_URL = '' } = ENV;
 
 function Home(props) {
   const {
@@ -66,7 +68,7 @@ function Home(props) {
       <DefaultSeo {...seos} />
       <LayoutDefault pathname={pathname}>
         <BlockMainTop {...{ data: block_top }} />
-        <section className="container">
+        <Container tag="section">
           <Row>
             <div className="mx-auto">
               <h3 className="headline-center">Our Services</h3>
@@ -75,8 +77,8 @@ function Home(props) {
           <div className="mt-5 pt-5">
             <ServiceCardList itemList={services} />
           </div>
-        </section>
-        <section className="container">
+        </Container>
+        <Container tag="section">
           <Row>
             <div className="mx-auto">
               <h3 className="headline-center">Our Packages</h3>
@@ -87,7 +89,7 @@ function Home(props) {
               <PackageCardList itemList={packages} />
             </Row>
           </Container>
-        </section>
+        </Container>
         <BlockMainBottom />
       </LayoutDefault>
     </>
@@ -96,9 +98,9 @@ function Home(props) {
 
 Home.getInitialProps = async ({ ctx }) => {
   const { pathname, err } = ctx;
-  const res = await fetch(`${process.env.BASE_URL}/api`);
+  const res = await fetch(`${BASE_API_URL}/api`);
   const json = await res.json();
-  // console.log(process.env.NAME);
+
   return { data: json, pathname, err };
 };
 

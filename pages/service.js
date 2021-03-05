@@ -11,8 +11,10 @@ import ServiceCardBigList from '../components/cards/services/ServiceCardBigList'
 
 /** seo */
 import { DefaultSeo } from 'next-seo';
-
-const BASE_URL = process.env.BASE_URL;
+/** next */
+import ENV from '../config/env';
+/** urls */
+const { BASE_URL = '', BASE_API_URL = '' } = ENV;
 
 export default function Service(props) {
   const {
@@ -79,7 +81,7 @@ export default function Service(props) {
 
 Service.getInitialProps = async ({ ctx }) => {
   const { pathname, err } = ctx;
-  const res = await fetch(`${process.env.BASE_URL}/api/service`);
+  const res = await fetch(`${BASE_API_URL}/api/service`);
   const json = await res.json();
   return { data: json, pathname, err };
 };

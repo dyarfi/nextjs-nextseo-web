@@ -1,10 +1,13 @@
 import React from 'react';
 
+/** Reactstrap */
+import { Col, Row } from 'reactstrap';
+
 export default function StartedCardSingle(props) {
   const { itemList } = props;
   return (
     <div className="boxed-bottom">
-      <div className="boxed-bottom-left col-12 col-md-6 col-lg-4">
+      <Col xs={12} md={6} lg={4} className="boxed-bottom-left">
         <div className="boxed-bottom-content">
           <h4 className="font-weight-bolder text-uppercase headline text-muted">
             Lorem ipsum dolor sit amet.
@@ -20,8 +23,8 @@ export default function StartedCardSingle(props) {
             proof of concept IoT systems that require analytics.
           </p>
         </div>
-      </div>
-      <div className="boxed-bottom-right col-12 col-md-6 col-lg-4">
+      </Col>
+      <Col xs={12} md={6} lg={4} className="boxed-bottom-right">
         <div className="boxed-bottom-content">
           <h4 className="font-weight-bolder text-uppercase headline text-muted">
             Lorem ipsum dolor sit amet.
@@ -38,8 +41,8 @@ export default function StartedCardSingle(props) {
             home automation.
           </p>
         </div>
-      </div>
-      <div className="boxed-bottom-left col-12 col-md-6 col-lg-4">
+      </Col>
+      <Col xs={12} md={6} lg={4} className="boxed-bottom-left">
         <div className="boxed-bottom-content">
           <h4 className="font-weight-bolder text-uppercase headline text-muted">
             Lorem ipsum dolor sit amet.
@@ -55,7 +58,7 @@ export default function StartedCardSingle(props) {
             proof of concept IoT systems that require analytics.
           </p>
         </div>
-      </div>
+      </Col>
     </div>
   );
 }

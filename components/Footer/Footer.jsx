@@ -1,6 +1,10 @@
 import React from 'react';
+
 import Image from 'next/image';
 import Link from 'next/link';
+
+/** reactstrap */
+import { Container, Col, Row } from 'reactstrap';
 
 /* routes */
 import ROUTES from '../../config/routes';
@@ -9,9 +13,9 @@ function Footer(props) {
   return (
     <footer>
       <div className="bg-light footer-holder">
-        <div className="container">
-          <div className="row mx-auto">
-            <div className="col-sm-6 col-lg-3">
+        <Container>
+          <Row className="mx-auto">
+            <Col sm={6} lg={3}>
               <h4 className="text-muted font-weight-bold">Company</h4>
               <ul className="list-links">
                 <li>
@@ -39,8 +43,8 @@ function Footer(props) {
                   </Link>
                 </li>
               </ul>
-            </div>
-            <div className="col-sm-6 col-lg-3">
+            </Col>
+            <Col sm={6} lg={3}>
               <h4 className="text-muted font-weight-bold">Resources</h4>
               <ul className="list-links">
                 <li>
@@ -70,8 +74,8 @@ function Footer(props) {
                   <a href="#">API</a>
                 </li>
               </ul>
-            </div>
-            <div className="col-sm-6 col-lg-3">
+            </Col>
+            <Col sm={6} lg={3}>
               <h4 className="text-muted font-weight-bold">Developers</h4>
               <ul className="list-links">
                 <li>
@@ -87,8 +91,8 @@ function Footer(props) {
                   <a href="#">Gitter</a>
                 </li>
               </ul>
-            </div>
-            <div className="col-sm-6 col-lg-3">
+            </Col>
+            <Col sm={6} lg={3}>
               <a className="navbar-brand ml-3" href="#">
                 {/* <i className="text-warning ">//</i>{" "}
                 <span className="text-success">IOTA Connect</span> */}
@@ -102,13 +106,13 @@ function Footer(props) {
                   style={{ verticalAlign: 'middle' }}
                 />
               </a>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </div>
       <div className="footer">
-        <div className="container">
-          <div className="row">
+        <Container>
+          <Row>
             <div className="mx-auto">
               <p className="text-muted">
                 Credits for images goes to Nathan Anderson, Hatsukami Morgan,
@@ -119,8 +123,8 @@ function Footer(props) {
                 .<span className="d-block text-center">Copyright @ 2019</span>
               </p>
             </div>
-          </div>
-        </div>
+          </Row>
+        </Container>
       </div>
     </footer>
   );

@@ -61,35 +61,60 @@ function Header(props) {
             <Nav className="navbar-nav ml-auto text-right font-weight-bold">
               <NavItem className={`${pathname === '/' ? `active` : ``}`}>
                 <NavLink
+                  href={ROUTES.INDEX.href}
+                  as={ROUTES.INDEX.url}
                   activeClassName={pathname === '/' && 'text-dark'}
-                  {...{
-                    href: ROUTES.INDEX.href,
-                    as: ROUTES.INDEX.url,
-                  }}
+                  {
+                    ...{
+                      // href: ROUTES.INDEX.href,
+                      // as: ROUTES.INDEX.url,
+                    }
+                  }
                 >
                   <a className="nav-link">Home</a>
                 </NavLink>
               </NavItem>
               <NavItem className={`${pathname === '/about' ? `active` : ``}`}>
                 <NavLink
+                  href={ROUTES.ABOUT.href}
+                  as={ROUTES.ABOUT.url}
                   activeClassName={pathname === '/about' && 'text-dark'}
-                  {...{ href: ROUTES.ABOUT.href, as: ROUTES.ABOUT.url }}
+                  {
+                    ...{
+                      // href: ROUTES.ABOUT.href,
+                      // as: ROUTES.ABOUT.url
+                    }
+                  }
                 >
                   <a className="nav-link">About</a>
                 </NavLink>
               </NavItem>
               <NavItem className={`${pathname === '/service' ? `active` : ``}`}>
                 <NavLink
+                  href={ROUTES.SERVICE.href}
+                  as={ROUTES.SERVICE.url}
                   activeClassName={pathname === '/service' && 'text-dark'}
-                  {...{ href: ROUTES.SERVICE.href, as: ROUTES.SERVICE.url }}
+                  {
+                    ...{
+                      // href: ROUTES.SERVICE.href,
+                      // as: ROUTES.SERVICE.url
+                    }
+                  }
                 >
                   <a className="nav-link">Service</a>
                 </NavLink>
               </NavItem>
               <NavItem className={`${pathname === '/contact' ? `active` : ``}`}>
                 <NavLink
+                  href={ROUTES.CONTACT.href}
+                  as={ROUTES.CONTACT.url}
                   activeClassName={pathname === '/contact' && 'text-dark'}
-                  {...{ href: ROUTES.CONTACT.href, as: ROUTES.CONTACT.url }}
+                  {
+                    ...{
+                      // href: ROUTES.CONTACT.href,
+                      // as: ROUTES.CONTACT.url
+                    }
+                  }
                 >
                   <a className="nav-link">Contact</a>
                 </NavLink>

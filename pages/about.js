@@ -1,3 +1,6 @@
+/** reactstrap */
+import { Container, Col, Row } from 'reactstrap';
+
 /** components */
 import LayoutDefault from '../layouts/Default';
 import BlockMainTop from '../components/blocks/BlockMainTop';
@@ -5,6 +8,10 @@ import BlockMainBottom from '../components/blocks/BlockMainBottom';
 
 /** seo */
 import { DefaultSeo } from 'next-seo';
+/** next */
+import ENV from '../config/env';
+/** urls */
+const { BASE_URL = '', BASE_API_URL = '' } = ENV;
 
 export default function About(props) {
   const {
@@ -19,14 +26,14 @@ export default function About(props) {
       <DefaultSeo title={title} description={description} />
       <LayoutDefault pathname={pathname}>
         <BlockMainTop {...{ data: block_top }} />
-        <section className="container" id="learn">
-          <div className="row mt-5">
+        <Container tag="section" id="learn">
+          <Row className="mt-5">
             <div className="mx-auto">
               <h2 className="headline-center">About Us</h2>
             </div>
-          </div>
+          </Row>
           <div className="boxed">
-            <div className="col-lg-6 boxed-left-side">
+            <Col lg={6} className="boxed-left-side">
               <h3 className="font-weight-bolder text-uppercase text-success">
                 We are the IOT Service Agency
               </h3>
@@ -35,8 +42,8 @@ export default function About(props) {
                 Laborum quos minus saepe.
               </p>
               <em className="text-muted">Analysis for your IOT Projects</em>
-            </div>
-            <div className="col-lg-6 boxed-right-side">
+            </Col>
+            <Col lg={6} className="boxed-right-side">
               <h3 className="font-weight-bolder text-uppercase text-success">
                 Connected, Collect and Analyze
               </h3>
@@ -49,19 +56,19 @@ export default function About(props) {
                   &mdash; We covered all your dashboard analytics data
                 </cite>
               </blockquote>
-            </div>
+            </Col>
           </div>
-        </section>
+        </Container>
 
-        <section className="container my-5 pb-5" id="about">
-          <div className="row my-5">
+        <Container tag="section" className="my-5 pb-5" id="about">
+          <Row className="my-5">
             <div className="mx-auto">
               <h2 className="headline-center">Getting Started</h2>
             </div>
-          </div>
-          <div className="container-fluid">
+          </Row>
+          <Container fluid>
             <div className="boxed-bottom">
-              <div className="boxed-bottom-left col-12 col-md-6 col-lg-4">
+              <Col xs={12} md={6} lg={4} className="boxed-bottom-left">
                 <div className="boxed-bottom-content">
                   <h3 className="font-weight-bold text-uppercase headline text-muted">
                     Lorem ipsum dolor sit amet.
@@ -79,8 +86,8 @@ export default function About(props) {
                     analytics.
                   </p>
                 </div>
-              </div>
-              <div className="boxed-bottom-right col-12 col-md-6 col-lg-4">
+              </Col>
+              <Col xs={12} md={6} lg={4} className="boxed-bottom-right">
                 <div className="boxed-bottom-content">
                   <h3 className="font-weight-bold text-uppercase headline text-muted">
                     Lorem ipsum dolor sit amet.
@@ -98,8 +105,8 @@ export default function About(props) {
                     and various home automation.
                   </p>
                 </div>
-              </div>
-              <div className="boxed-bottom-left col-12 col-md-6 col-lg-4">
+              </Col>
+              <Col xs={12} md={6} lg={4} className="boxed-bottom-left">
                 <div className="boxed-bottom-content">
                   <h3 className="font-weight-bold text-uppercase headline text-muted">
                     Lorem ipsum dolor sit amet.
@@ -117,10 +124,10 @@ export default function About(props) {
                     analytics.
                   </p>
                 </div>
-              </div>
+              </Col>
             </div>
-          </div>
-        </section>
+          </Container>
+        </Container>
         <BlockMainBottom />
       </LayoutDefault>
     </>
@@ -129,7 +136,7 @@ export default function About(props) {
 
 About.getInitialProps = async ({ ctx }) => {
   const { pathname, err } = ctx;
-  const res = await fetch(`${process.env.BASE_URL}/api/about`);
+  const res = await fetch(`${BASE_API_URL}/api/about`);
   const json = await res.json();
   return { data: json, pathname, err };
 };

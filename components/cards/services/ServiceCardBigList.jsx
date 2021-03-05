@@ -1,4 +1,5 @@
 import React from 'react';
+
 /** Reactstrap */
 import { Col, Row } from 'reactstrap';
 
@@ -19,7 +20,7 @@ function ServiceCardBigList(props) {
             />
           </div>
         </div>
-        <Col xs="9" lg="6" className={classBoxService}>
+        <Col xs={9} lg={6} className={classBoxService}>
           <div className="service-list__content">
             <div className="service-list__overlay">
               <div className="service-list__caption">

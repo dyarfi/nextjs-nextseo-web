@@ -9,10 +9,10 @@ function PackageCardListAlt(props) {
   return itemList.map((item, idx) => {
     return (
       <Col
-        xs="12"
-        sm="6"
-        md="6"
-        lg="3"
+        xs={12}
+        sm={6}
+        md={6}
+        lg={3}
         key={`p-${idx}`}
         className="position-relative mx-auto"
       >

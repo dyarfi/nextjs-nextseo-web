@@ -1,15 +1,18 @@
 import React from 'react';
 
+/** reactstrap */
+import { Container, Col, Row } from 'reactstrap';
+
 function BlockMainBottom(props) {
   const block_bottom = { title: 'Bottom', body: 'Body' };
   return (
     <section className="subscriber">
-      <div className="container">
-        <div className="row">
+      <Container>
+        <Row>
           <div className="my-4 mx-auto">
             <form className="form-inline">
               <div className="form-row">
-                <div className="col-12">
+                <Col lg={12}>
                   <label htmlFor="subscribe" className="sr-only">
                     Subscribe
                   </label>
@@ -28,12 +31,12 @@ function BlockMainBottom(props) {
                   >
                     Subscribe
                   </button>
-                </div>
+                </Col>
               </div>
             </form>
           </div>
-        </div>
-      </div>
+        </Row>
+      </Container>
     </section>
   );
 }

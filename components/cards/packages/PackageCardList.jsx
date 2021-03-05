@@ -13,13 +13,13 @@ function PackageCardList(props) {
           return (
             <Col
               key={`p-${idx}`}
-              xs="12"
-              md="6"
-              lg="4"
+              xs={12}
+              md={6}
+              lg={4}
               className="card-portrait-col"
             >
               <div className="card-portrait-content ilist-c h-100">
-                <Col xs="12" className="card-portrait-image align-self-center">
+                <Col xs={12} className="card-portrait-image align-self-center">
                   <div className="text-center">
                     <img
                       src="https://placeimg.com/250/250/people"
@@ -30,7 +30,7 @@ function PackageCardList(props) {
                     </h5>
                   </div>
                 </Col>
-                <Col xs="12" className="align-self-center text-center">
+                <Col xs={12} className="align-self-center text-center">
                   <h6>{disc}0% Off!</h6>
                   <p className="border-bottom border-top text-secondary p-3">
                     {item.description}

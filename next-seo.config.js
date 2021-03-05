@@ -1,4 +1,5 @@
-const BASE_URL = process.env.BASE_URL;
+import ENV from './config/env';
+const { BASE_URL, NAME, AUTHOR } = ENV;
 
 export default {
   titleTemplate: '%s | Your Website',
@@ -9,11 +10,11 @@ export default {
     type: 'website',
     locale: 'en_IE',
     url: BASE_URL,
-    // site_name: 'SiteName',
+    site_name: NAME,
   },
   twitter: {
-    handle: '@dyarfi',
-    site: '@dyarfi',
+    handle: AUTHOR,
+    site: AUTHOR,
     cardType: 'summary_large_image',
   },
   robots: {
