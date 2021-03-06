@@ -1,29 +1,21 @@
+/* env */
 import ENV from './config/env';
-const { BASE_URL, NAME, AUTHOR } = ENV;
+/* env vars */
+const { BASE_URL, NAME, AUTHOR, STATIC_DIR } = ENV;
 
+// Default Next-Seo meta tags
 export default {
   titleTemplate: '%s | Your Website',
   title: 'Your Default Headline Title',
-  defaultTitle: 'Your Default Title',
   description: 'Description of your website',
+  canonical: BASE_URL,
   openGraph: {
-    type: 'website',
-    locale: 'en_IE',
-    url: BASE_URL,
-    site_name: NAME,
+    images: [{ url: `${BASE_URL}${STATIC_DIR}xconnect.jpg` }],
   },
-  twitter: {
-    handle: AUTHOR,
-    site: AUTHOR,
-    cardType: 'summary_large_image',
-  },
-  robots: {
-    nosnippet: true,
-    notranslate: true,
-    noimageindex: true,
-    noarchive: true,
-    maxSnippet: -1,
-    maxImagePreview: 'none',
-    maxVideoPreview: -1,
-  },
+  additionalMetaTags: [
+    {
+      httpEquiv: 'x-ua-compatible',
+      content: 'IE=edge; chrome=1',
+    },
+  ],
 };

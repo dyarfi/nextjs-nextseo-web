@@ -1,4 +1,7 @@
 export default {
+  copyright: '',
+  credits: '',
+  footnote: '',
   getting_started: [
     {
       title: 'Learn More About IOTA Connect',

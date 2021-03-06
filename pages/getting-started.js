@@ -4,17 +4,36 @@ import BlockMainTop from '../components/blocks/BlockMainTop';
 import BlockMainBottom from '../components/blocks/BlockMainBottom';
 
 /** seo */
-import { DefaultSeo } from 'next-seo';
-/** next */
+import { NextSeo } from 'next-seo';
+/** env */
 import ENV from '../config/env';
-/** urls */
-const { BASE_URL = '', BASE_API_URL = '' } = ENV;
+/** vars */
+const {
+  BASE_URL = '',
+  BASE_API_URL = '',
+  BASE_SEO = '',
+  STATIC_DIR = '',
+  AUTHOR,
+} = ENV;
 
 function GettingStarted(props) {
-  // console.log(props);
+  const SEOS = {
+    title,
+    description: metaDescription,
+    canonical: `${BASE_URL}${pathname}`,
+    openGraph: [
+      {
+        url: BASE_URL,
+        images: { url: `${BASE_URL}${STATIC_DIR}xconnect.jpg` },
+        site_name: AUTHOR,
+      },
+    ],
+    ...BASE_SEO,
+  };
+
   return (
     <>
-      <DefaultSeo />
+      <NextSeo {...SEOS} />
       <LayoutDefault>
         {/* <BlockMainTop /> */}
         <div className="container my-3 py-5 contact">
@@ -97,7 +116,7 @@ function GettingStarted(props) {
   );
 }
 
-GettingStarted.getInitialProps = async ({ ctx }) => {
+GettingStarted.getServerSideProps = async ({ ctx }) => {
   const { pathname, err } = ctx;
   const res = await fetch(`${BASE_API_URL}/api/global`);
   const json = await res.json();

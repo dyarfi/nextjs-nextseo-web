@@ -10,55 +10,49 @@ import BlockMainBottom from '../components/blocks/BlockMainBottom';
 import ServiceCardBigList from '../components/cards/services/ServiceCardBigList';
 
 /** seo */
-import { DefaultSeo } from 'next-seo';
-/** next */
+import { NextSeo } from 'next-seo';
+/** env */
 import ENV from '../config/env';
-/** urls */
-const { BASE_URL = '', BASE_API_URL = '' } = ENV;
+/** vars */
+const {
+  BASE_URL = '',
+  BASE_API_URL = '',
+  BASE_SEO = '',
+  STATIC_DIR = '',
+  AUTHOR,
+} = ENV;
 
-export default function Service(props) {
+function Service(props) {
   const {
     pathname,
-    data: { title, description, slug, services, block_top = {} },
+    data: {
+      title,
+      metaTitle,
+      description,
+      metaDescription,
+      slug,
+      services,
+      block_top = {},
+    },
   } = props;
 
-  const seos = {
+  const SEOS = {
     title,
-    description: description.replace(/(<([^>]+)>)/gi),
+    description: metaDescription,
     canonical: `${BASE_URL}${pathname}`,
-    openGraph: {
-      url: 'https://www.url.ie/a',
-      title: title,
-      description: description.replace(/(<([^>]+)>)/gi),
-      images: [
-        {
-          url: 'https://www.example.ie/og-image-01.jpg',
-          width: 800,
-          height: 600,
-          alt: 'Og Image Alt',
-        },
-        {
-          url: 'https://www.example.ie/og-image-02.jpg',
-          width: 900,
-          height: 800,
-          alt: 'Og Image Alt Second',
-        },
-        { url: 'https://www.example.ie/og-image-03.jpg' },
-        { url: 'https://www.example.ie/og-image-04.jpg' },
-      ],
-      // site_name: 'SiteName',
-    },
-    // twitter:
-    // {
-    //   handle: '@handle',
-    //   site: '@site',
-    //   cardType: 'summary_large_image',
-    // }
+    openGraph: [
+      {
+        url: BASE_URL,
+        images: { url: `${BASE_URL}${STATIC_DIR}xconnect.jpg` },
+        site_name: AUTHOR,
+      },
+    ],
+    ...BASE_SEO,
   };
 
   return (
     <>
-      <DefaultSeo {...seos} />
+      <NextSeo {...SEOS} />
       <LayoutDefault pathname={pathname}>
         {/* <BlockMainTop /> */}
         <div className="bg-light py-lg-4">
@@ -79,9 +73,11 @@ export default function Service(props) {
   );
 }
 
-Service.getInitialProps = async ({ ctx }) => {
-  const { pathname, err } = ctx;
+export async function getServerSideProps(ctx) {
+  const { resolvedUrl } = ctx;
   const res = await fetch(`${BASE_API_URL}/api/service`);
   const json = await res.json();
-  return { data: json, pathname, err };
-};
+  return { props: { data: json, pathname: resolvedUrl } };
+}
+
+export default Service;

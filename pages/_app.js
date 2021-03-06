@@ -1,4 +1,3 @@
-// import your default seo configuration
 import App from 'next/app';
 
 // seos
@@ -14,12 +13,10 @@ class MyApp extends App {
   }
 
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps({ ctx });
-    }
-
-    return { pageProps };
+    return {
+      pageProps:
+        Component.getInitialProps && (await Component.getInitialProps({ ctx })),
+    };
   }
 
   render() {

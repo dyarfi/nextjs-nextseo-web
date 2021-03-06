@@ -7,25 +7,52 @@ import BlockMainTop from '../components/blocks/BlockMainTop';
 import BlockMainBottom from '../components/blocks/BlockMainBottom';
 
 /** seo */
-import { DefaultSeo } from 'next-seo';
-/** next */
+import { NextSeo } from 'next-seo';
+/** env */
 import ENV from '../config/env';
-/** urls */
-const { BASE_URL = '', BASE_API_URL = '' } = ENV;
+/** vars */
+const {
+  BASE_URL = '',
+  BASE_API_URL = '',
+  BASE_SEO = '',
+  STATIC_DIR = '',
+  AUTHOR,
+} = ENV;
 
-export default function About(props) {
+function About(props) {
   const {
     pathname,
-    data: { title, description, header, slug, block_top = {} },
+    data: {
+      title,
+      metaTitle,
+      description,
+      metaDescription,
+      header,
+      slug,
+      block_top = {},
+    },
   } = props;
 
   const disc = 4;
+  const SEOS = {
+    title,
+    description: metaDescription.replace(/(<([^>]+)>)/gi, ''),
+    canonical: `${BASE_URL}${pathname}`,
+    openGraph: [
+      {
+        url: BASE_URL,
+        images: { url: `${BASE_URL}${STATIC_DIR}xconnect.jpg` },
+        site_name: AUTHOR,
+      },
+    ],
+    ...BASE_SEO,
+  };
 
   return (
     <>
-      <DefaultSeo title={title} description={description} />
+      <NextSeo {...SEOS} />
       <LayoutDefault pathname={pathname}>
-        <BlockMainTop {...{ data: block_top }} />
+        <BlockMainTop items={block_top} />
         <Container tag="section" id="learn">
           <Row className="mt-5">
             <div className="mx-auto">
@@ -59,7 +86,6 @@ export default function About(props) {
             </Col>
           </div>
         </Container>
-
         <Container tag="section" className="my-5 pb-5" id="about">
           <Row className="my-5">
             <div className="mx-auto">
@@ -134,9 +160,12 @@ export default function About(props) {
   );
 }
 
-About.getInitialProps = async ({ ctx }) => {
-  const { pathname, err } = ctx;
+export async function getServerSideProps(ctx) {
+  const { resolvedUrl } = ctx;
   const res = await fetch(`${BASE_API_URL}/api/about`);
   const json = await res.json();
-  return { data: json, pathname, err };
-};
+
+  return { props: { data: json, pathname: resolvedUrl } };
+}
+
+export default About;

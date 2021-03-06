@@ -4,7 +4,7 @@ import React from 'react';
 import { Col, Row } from 'reactstrap';
 
 function BlockMainTop(props) {
-  const { data: block_top = {} } = props;
+  const { items: block_top = {} } = props;
 
   return (
     <section

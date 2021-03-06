@@ -1,7 +1,12 @@
 export default {
   title: 'Homepage',
+  slug: '/',
   description:
     'A Connected devices setup by <a class="text-light font-weight-bold" href="https://github.com/dyarfi">@xconnect</a>',
+  metaTitle: 'Homepage Meta Title',
+  metaDescription: 'Homepage Meta Description',
+  metaImg:
+    'https://images.unsplash.com/photo-1475738198235-4b30fc20cff4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;format=auto&amp;fit=crop&amp;w=1487&amp;q=80',
   block_top: {
     title:
       '<h1 class="display-3 text-warning">Connected devices, Internet and Dashboard</h1>',

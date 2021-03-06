@@ -1,5 +1,5 @@
 const INDEX = {
-  href: '/home',
+  href: '/',
   url: '/',
   route: 'index',
 };
@@ -19,7 +19,7 @@ const CONTACT = {
   route: 'contact',
 };
 const DOCUMENTATION = {
-  href: 'documentation',
+  href: '/documentation',
   url: '/documentation',
   route: 'documentation',
 };

@@ -13,61 +13,55 @@ import ServiceCardList from '../components/cards/services/ServiceCardList';
 import PackageCardList from '../components/cards/packages/PackageCardList';
 
 /** seo */
-import { DefaultSeo } from 'next-seo';
-/** next */
+import { NextSeo } from 'next-seo';
+/** env */
 import ENV from '../config/env';
-/** urls */
-const { BASE_URL = '', BASE_API_URL = '' } = ENV;
+/** vars */
+const {
+  BASE_URL = '',
+  BASE_API_URL = '',
+  BASE_SEO = '',
+  STATIC_DIR = '',
+  AUTHOR,
+} = ENV;
 
 function Home(props) {
   const {
     pathname,
-    data: { title, description, packages = [], services = [], block_top = {} },
+    data: {
+      title,
+      metaTitle,
+      description,
+      metaDescription,
+      packages = [],
+      services = [],
+      block_top = {},
+    },
   } = props;
 
   const [visible, setVisible] = useState(true);
 
   const onDismiss = () => setVisible(false);
 
-  const seos = {
-    title,
-    description: description.replace(/(<([^>]+)>)/gi, ''),
-    canonical: `${BASE_URL}`,
-    openGraph: {
-      url: 'https://www.url.ie/a',
-      title: title,
-      description: description.replace(/(<([^>]+)>)/gi, ''),
-      images: [
-        {
-          url: 'https://www.example.ie/og-image-01.jpg',
-          width: 800,
-          height: 600,
-          alt: 'Og Image Alt',
-        },
-        {
-          url: 'https://www.example.ie/og-image-02.jpg',
-          width: 900,
-          height: 800,
-          alt: 'Og Image Alt Second',
-        },
-        { url: 'https://www.example.ie/og-image-03.jpg' },
-        { url: 'https://www.example.ie/og-image-04.jpg' },
-      ],
-      // site_name: 'SiteName',
-    },
-    // twitter:
-    // {
-    //   handle: '@handle',
-    //   site: '@site',
-    //   cardType: 'summary_large_image',
-    // }
+  const SEOS = {
+    title: title,
+    description: metaDescription,
+    canonical: `${BASE_URL}${pathname}`,
+    openGraph: [
+      {
+        url: BASE_URL,
+        images: { url: `${BASE_URL}${STATIC_DIR}xconnect.jpg` },
+        site_name: AUTHOR,
+      },
+    ],
+    ...BASE_SEO,
   };
 
   return (
     <>
-      <DefaultSeo {...seos} />
+      <NextSeo {...SEOS} />
       <LayoutDefault pathname={pathname}>
-        <BlockMainTop {...{ data: block_top }} />
+        <BlockMainTop items={block_top} />
         <Container tag="section">
           <Row>
             <div className="mx-auto">
@@ -96,12 +90,11 @@ function Home(props) {
   );
 }
 
-Home.getInitialProps = async ({ ctx }) => {
-  const { pathname, err } = ctx;
+export async function getServerSideProps(ctx) {
+  const { resolvedUrl } = ctx;
   const res = await fetch(`${BASE_API_URL}/api`);
   const json = await res.json();
-
-  return { data: json, pathname, err };
-};
+  return { props: { data: json, pathname: resolvedUrl } };
+}
 
 export default Home;

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 /** reactstrap */
-import { Container, Col, Row } from 'reactstrap';
+import { Container, Col, Row, Nav } from 'reactstrap';
 
 /* routes */
 import ROUTES from '../../config/routes';
@@ -17,7 +17,7 @@ function Footer(props) {
           <Row className="mx-auto">
             <Col sm={6} lg={3}>
               <h4 className="text-muted font-weight-bold">Company</h4>
-              <ul className="list-links">
+              <Nav vertical tag="ul" className="list-links">
                 <li>
                   <Link {...{ href: ROUTES.INDEX.href, as: ROUTES.INDEX.url }}>
                     <a>Home</a>
@@ -42,11 +42,11 @@ function Footer(props) {
                     <a>Contact</a>
                   </Link>
                 </li>
-              </ul>
+              </Nav>
             </Col>
             <Col sm={6} lg={3}>
               <h4 className="text-muted font-weight-bold">Resources</h4>
-              <ul className="list-links">
+              <Nav vertical as="ul" className="list-links">
                 <li>
                   <Link
                     {...{
@@ -73,11 +73,11 @@ function Footer(props) {
                 <li>
                   <a href="#">API</a>
                 </li>
-              </ul>
+              </Nav>
             </Col>
             <Col sm={6} lg={3}>
               <h4 className="text-muted font-weight-bold">Developers</h4>
-              <ul className="list-links">
+              <Nav vertical tag="ul" className="list-links">
                 <li>
                   <a href="#">Blogs</a>
                 </li>
@@ -90,9 +90,9 @@ function Footer(props) {
                 <li>
                   <a href="#">Gitter</a>
                 </li>
-              </ul>
+              </Nav>
             </Col>
-            <Col sm={6} lg={3}>
+            <Col sm={6} lg={3} size={{}}>
               <a className="navbar-brand ml-3" href="#">
                 {/* <i className="text-warning ">//</i>{" "}
                 <span className="text-success">IOTA Connect</span> */}

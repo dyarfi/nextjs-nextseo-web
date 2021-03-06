@@ -1,9 +1,13 @@
 export default {
   title: 'Our Services',
+  slug: 'service',
   description:
     'We are a full service for any of your Internet of Things project company',
+  metaTitle: 'Services Meta Title',
+  metaDescription: 'Services Meta Description',
+  metaImg:
+    'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1280&h=720&q=70',
   header: '<small class="d-block h2">The IOT Service Agent Company</small>',
-  slug: 'service',
   services: [
     {
       name: 'Development',

@@ -17,23 +17,51 @@ import BlockMainTop from '../components/blocks/BlockMainTop';
 import BlockMainBottom from '../components/blocks/BlockMainBottom';
 
 /** seo */
-import { DefaultSeo } from 'next-seo';
-/** next */
+import { NextSeo } from 'next-seo';
+/** env */
 import ENV from '../config/env';
-/** urls */
-const { BASE_URL = '', BASE_API_URL = '' } = ENV;
+/** vars */
+const {
+  BASE_URL = '',
+  BASE_API_URL = '',
+  BASE_SEO = '',
+  STATIC_DIR = '',
+  AUTHOR,
+} = ENV;
 
-export default function Contact(props) {
+function Contact(props) {
   const {
     pathname,
-    data: { title, description, header, slug, block_top = {} },
+    data: {
+      title,
+      metaTitle,
+      description,
+      metaDescription,
+      header,
+      slug,
+      block_top = {},
+    },
   } = props;
+
+  const SEOS = {
+    title,
+    description: metaDescription,
+    canonical: `${BASE_URL}${pathname}`,
+    openGraph: [
+      {
+        url: BASE_URL,
+        images: { url: `${BASE_URL}${STATIC_DIR}xconnect.jpg` },
+        site_name: AUTHOR,
+      },
+    ],
+    ...BASE_SEO,
+  };
 
   return (
     <>
-      <DefaultSeo title={title} description={description} />
+      <NextSeo {...SEOS} />
       <LayoutDefault pathname={pathname}>
-        <BlockMainTop {...{ data: block_top }} />
+        <BlockMainTop items={block_top} />
         <Container tag="section" className="my-3 py-5 contact">
           <Col lg={4} className="mx-auto pb-2">
             <h3 className="headline font-weight-bolder text-muted pb-2">
@@ -197,9 +225,11 @@ export default function Contact(props) {
   );
 }
 
-Contact.getInitialProps = async ({ ctx }) => {
-  const { pathname, err } = ctx;
+export async function getServerSideProps(ctx) {
+  const { resolvedUrl } = ctx;
   const res = await fetch(`${BASE_API_URL}/api/contact`);
   const json = await res.json();
-  return { data: json, pathname, err };
-};
+  return { props: { data: json, pathname: resolvedUrl } };
+}
+
+export default Contact;
