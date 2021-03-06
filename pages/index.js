@@ -65,7 +65,7 @@ function Home(props) {
         <Container tag="section">
           <Row>
             <div className="mx-auto">
-              <h3 className="headline-center">Our Services</h3>
+              <h2 className="headline-center">Our Services</h2>
             </div>
           </Row>
           <div className="mt-5 pt-5">
@@ -75,7 +75,7 @@ function Home(props) {
         <Container tag="section">
           <Row>
             <div className="mx-auto">
-              <h3 className="headline-center">Our Packages</h3>
+              <h2 className="headline-center">Our Packages</h2>
             </div>
           </Row>
           <Container className="text-center mt-3 mb-5">

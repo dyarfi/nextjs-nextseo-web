@@ -22,22 +22,25 @@ function PackageCardList(props) {
                 <Col xs={12} className="card-portrait-image align-self-center">
                   <div className="text-center">
                     <img
-                      src="https://placeimg.com/250/250/people"
+                      alt={item.title}
+                      src="https://source.unsplash.com/random/800x800"
+                      width="auto"
+                      height="auto"
                       className="img-thumbnail rounded-circle img-fluid w-50"
                     />
-                    <h5 className="mt-2 text-muted">
+                    <h3 className="mt-2 text-muted">
                       <a href="employee-single.html">{item.title}</a>
-                    </h5>
+                    </h3>
                   </div>
                 </Col>
                 <Col xs={12} className="align-self-center text-center">
-                  <h6>{disc}0% Off!</h6>
+                  <h4>{disc}0% Off!</h4>
                   <p className="border-bottom border-top text-secondary p-3">
                     {item.description}
                   </p>
                   <Col className="d-flex justify-content-between">
                     <a href="#" className="btn btn-md btn-warning">
-                      <span className="font-weight-bold h4">
+                      <span className="font-weight-bold h4 text-dark">
                         $ <s>{item.price}</s>{' '}
                       </span>
                     </a>

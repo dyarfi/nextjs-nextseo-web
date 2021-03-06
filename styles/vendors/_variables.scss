@@ -94,6 +94,7 @@ $transition-collapse: height 0.55s ease !default;
 // Navs
 $nav-pills-border-radius: $border-radius !default;
 
+$navbar-light-color: #343a40;
 // This cause error on webpack compile on node-sass components
 // $navbar-dark-toggler-icon-bg: none;
 // $navbar-light-toggler-icon-bg: none;

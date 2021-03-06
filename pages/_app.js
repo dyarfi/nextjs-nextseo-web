@@ -1,11 +1,13 @@
 import App from 'next/app';
 
-// seos
-import { DefaultSeo } from 'next-seo';
-import SEO from '../next-seo.config';
-
 // global styles
 import '../styles/vendors/main.scss';
+
+// seos
+import { DefaultSeo, LocalBusinessJsonLd, SocialProfileJsonLd } from 'next-seo';
+import SEO from '../next-seo.config';
+
+const { metas, microdatas } = SEO;
 
 class MyApp extends App {
   constructor(props) {
@@ -23,7 +25,9 @@ class MyApp extends App {
     const { Component, pageProps } = this.props;
     return (
       <>
-        <DefaultSeo {...SEO} />
+        <DefaultSeo {...metas} />
+        <LocalBusinessJsonLd {...microdatas.LocalBusinessJsonLd} />
+        <SocialProfileJsonLd {...microdatas.SocialProfileJsonLd} />
         <Component {...pageProps} />
       </>
     );

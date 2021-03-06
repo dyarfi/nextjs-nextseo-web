@@ -17,6 +17,8 @@ function ServiceCardBigList(props) {
               src={`${item.image}`}
               className="img-fluid"
               alt={`${item.name}`}
+              width="auto"
+              height="auto"
             />
           </div>
         </div>
@@ -35,9 +37,9 @@ function ServiceCardBigList(props) {
                   data-fancybox="img-menus"
                   data-caption={`${item.name}`}
                 >
-                  <h6 className="font-weight-bolder p-0 m-0 text-uppercase">
+                  <span className="h6 font-weight-bolder p-0 m-0 text-uppercase">
                     Read More <span>About {item.name}</span>
-                  </h6>
+                  </span>
                 </a>
               </div>
             </div>
