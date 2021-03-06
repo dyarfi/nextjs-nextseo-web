@@ -32,6 +32,11 @@ export default {
     openGraph: {
       images: [{ url: `${BASE_URL}${STATIC_DIR}${IMAGE}` }],
     },
+    twitter: {
+      handle: '@handle',
+      site: AUTHOR,
+      cardType: 'summary_large_image',
+    },
     additionalMetaTags: [
       {
         httpEquiv: 'x-ua-compatible',
