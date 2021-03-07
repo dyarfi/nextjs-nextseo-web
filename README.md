@@ -1,37 +1,80 @@
 # Next.js SEO with Next-SEO Website
 
-Setting up your Next.js website SEO
+Setting up your Next.js website SEO with Next-Seo meta and microdatas.
 
 ## Config
 
-Create a file under the name next-seo.config.js:
+Create `.env.local` put these variables:
+
+```env
+# env
+BASE_URL=http://localhost:3000
+API_URL=http://localhost:3000
+STATIC_DIR=/
+
+# seos
+NAME=TheStartUp
+TITLE=Title of the Website
+DESCRIPTION=Descriptive of the website
+SLOGAN=Cool Website Slogan
+ADDRESS=Typograph Road, Lorem Ipsum Street No. 404
+REGION=CA
+PHONE=+199999999
+IMAGE=xconnect.jpg
+AUTHOR=@thestartup
+
+# socmed
+FACEBOOK_URL=https://bussiness.facebook.com/thestartup
+TWITTER_URL=https://twitter.com/thestartup
+INSTAGRAM_URL=https://instagram.com/thestartup
+LINKEDIN_URL=https://linkedin.com/thestartup
+
+# locale
+COUNTRY=Indonesia
+POSTAL_CODE=999999
+LOCALE=en-US
+```
+
+Create a file under the name `next-seo.config.js`:
 
 ```javascript
-const BASE_URL = process.env.BASE_URL;
-export default {
-  titleTemplate: '%s | Your Website',
-  title: 'Your Default Headline Title',
-  defaultTitle: 'Your Default Title',
-  description: 'Description of your website',
-  openGraph: {
-    type: 'website',
-    locale: 'en_IE',
-    url: BASE_URL,
-    site_name: 'SiteName',
+module.exports = {
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    mySecret: 'secret',
+    secretKey: 'secretKey',
+    jwtToken: 'JwtToken',
   },
-  twitter: {
-    handle: '@SiteName',
-    site: '@SiteName',
-    cardType: 'summary_large_image',
-  },
-  robots: {
-    nosnippet: true,
-    notranslate: true,
-    noimageindex: true,
-    noarchive: true,
-    maxSnippet: -1,
-    maxImagePreview: 'none',
-    maxVideoPreview: -1,
+  publicRuntimeConfig: {
+    // Will be available on both server and client
+    // Pass through env variables
+    baseUrl: process.env.BASE_URL,
+    baseApiUrl: process.env.API_URL,
+    staticFolder: process.env.STATIC_DIR,
+    // Will be used for per SEO page default
+    baseSeo: {
+      robotsProps: {
+        maxSnippet: -1,
+        maxImagePreview: 'none',
+        maxVideoPreview: -1,
+      },
+    },
+    name: process.env.NAME,
+    title: process.env.TITLE,
+    slogan: process.env.SLOGAN,
+    description: process.env.DESCRIPTION,
+    author: process.env.AUTHOR,
+    image: process.env.IMAGE,
+    facebookUrl: process.env.FACEBOOK_URL,
+    twitterUrl: process.env.TWITTER_URL,
+    instagramUrl: process.env.INSTAGRAM_URL,
+    linkedInUrl: process.env.LINKEDIN_URL,
+    phone: process.env.PHONE,
+    address: process.env.ADDRESS,
+    region: process.env.REGION,
+    country: process.env.COUNTRY,
+    postalCode: process.env.POSTAL_CODE,
+    locale: process.env.LOCALE,
   },
 };
 ```
@@ -83,6 +126,18 @@ function Home(props) {
     </>
   );
 }
+```
+
+Develoment:
+
+```
+yarn dev
+```
+
+Production:
+
+```
+yarn build && yarn start
 ```
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).

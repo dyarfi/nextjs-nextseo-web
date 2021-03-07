@@ -1,5 +1,6 @@
 /* env */
 import ENV from './config/env';
+
 /* env vars */
 const {
   BASE_URL,
@@ -17,6 +18,7 @@ const {
   PHONE,
   ADDRESS,
   COUNTRY,
+  REGION,
   POSTAL_CODE,
   LOCALE,
 } = ENV;
@@ -59,11 +61,11 @@ export default {
       telephone: PHONE,
       address: [
         {
-          streetAddress: '1600 Saratoga Ave',
-          addressLocality: 'San Jose',
-          addressRegion: 'CA',
-          postalCode: '95129',
-          addressCountry: 'US',
+          streetAddress: ADDRESS,
+          addressLocality: COUNTRY,
+          addressRegion: REGION,
+          postalCode: POSTAL_CODE,
+          addressCountry: LOCALE.replace('en-', ''),
         },
       ],
       logo: {
