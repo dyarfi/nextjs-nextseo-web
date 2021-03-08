@@ -9,6 +9,21 @@ function Default(props) {
       <Header pathname={pathname} />
       <main>{children}</main>
       <Footer />
+      {process.env.NODE_ENV !== 'development' && (
+        <>
+          <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-JG2H8KV5EW"
+          ></script>
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'G-JG2H8KV5EW');`,
+            }}
+          />
+        </>
+      )}
     </>
   );
 }

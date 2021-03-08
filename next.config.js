@@ -25,6 +25,7 @@ module.exports = {
     description: process.env.DESCRIPTION,
     author: process.env.AUTHOR,
     image: process.env.IMAGE,
+    imageShare: process.env.IMAGE_SHARE,
     facebookUrl: process.env.FACEBOOK_URL,
     twitterUrl: process.env.TWITTER_URL,
     instagramUrl: process.env.INSTAGRAM_URL,

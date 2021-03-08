@@ -97,10 +97,10 @@ function Footer(props) {
                 {/* <i className="text-warning ">//</i>{" "}
                 <span className="text-success">IOTA Connect</span> */}
                 <Image
-                  src="/xconnect.jpg"
+                  src="/infinup.svg"
                   alt="Logo"
-                  width={158}
-                  height={54}
+                  width={154}
+                  height={70}
                   layout="fixed"
                   objectFit="contain"
                   style={{ verticalAlign: 'middle' }}

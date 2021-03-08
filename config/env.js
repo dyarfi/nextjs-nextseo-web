@@ -21,6 +21,7 @@ export default {
   AUTHOR: publicRuntimeConfig.author,
   STATIC_DIR: publicRuntimeConfig.staticFolder,
   IMAGE: publicRuntimeConfig.image,
+  IMAGE_SHARE: publicRuntimeConfig.imageShare,
   FACEBOOK_URL: publicRuntimeConfig.facebookUrl,
   TWITTER_URL: publicRuntimeConfig.twitterUrl,
   INSTAGRAM_URL: publicRuntimeConfig.instagramUrl,

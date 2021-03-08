@@ -28,7 +28,7 @@ class MyApp extends App {
       <>
         <DefaultSeo {...metas} />
         <LocalBusinessJsonLd {...microdatas.LocalBusinessJsonLd} />
-        <SocialProfileJsonLd {...microdatas.SocialProfileJsonLd} />
+        {/* <SocialProfileJsonLd {...microdatas.SocialProfileJsonLd} /> */}
         <Component {...pageProps} />
       </>
     );

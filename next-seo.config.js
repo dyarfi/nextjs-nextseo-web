@@ -11,6 +11,7 @@ const {
   AUTHOR,
   STATIC_DIR,
   IMAGE,
+  IMAGE_SHARE,
   FACEBOOK_URL,
   TWITTER_URL,
   INSTAGRAM_URL,
@@ -32,7 +33,14 @@ export default {
     description: DESCRIPTION,
     canonical: BASE_URL,
     openGraph: {
-      images: [{ url: `${BASE_URL}${STATIC_DIR}${IMAGE}` }],
+      images: [
+        {
+          url: `${BASE_URL}${STATIC_DIR}${IMAGE_SHARE}`,
+          width: 800,
+          height: 800,
+          alt: 'Og Image Alt',
+        },
+      ],
     },
     twitter: {
       handle: '@handle',
@@ -47,6 +55,10 @@ export default {
       {
         name: 'theme-color',
         content: '#ffc107',
+      },
+      {
+        name: 'google-site-verification',
+        content: 'vjLLPOfUtWqkaiBhrojLlAAjsQgFYR14MJwj8baLCXo',
       },
     ],
   },
@@ -72,7 +84,7 @@ export default {
         type: 'ImageObject',
         id: `${BASE_URL}/#logo`,
         inLanguage: LOCALE,
-        url: `${BASE_URL}${IMAGE}`,
+        url: `${BASE_URL}${IMAGE_SHARE}`,
         width: 112,
         height: 112,
         caption: NAME,
@@ -92,11 +104,11 @@ export default {
       slogan: SLOGAN,
       description: DESCRIPTION,
     },
-    SocialProfileJsonLd: {
-      type: 'Person',
-      name: AUTHOR,
-      url: BASE_URL,
-      sameAs: [FACEBOOK_URL, TWITTER_URL, INSTAGRAM_URL, LINKEDIN_URL],
-    },
+    // SocialProfileJsonLd: {
+    //   type: 'Person',
+    //   name: AUTHOR,
+    //   url: BASE_URL,
+    //   sameAs: [FACEBOOK_URL, TWITTER_URL, INSTAGRAM_URL, LINKEDIN_URL],
+    // },
   },
 };

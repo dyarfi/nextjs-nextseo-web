@@ -38,10 +38,10 @@ function Header(props) {
         <Container fluid>
           <NavbarBrand className="ml-0 pt-2 pb-0 mb-0" href="/">
             <Image
-              src="/xconnect.jpg"
+              src="/infinup.svg"
               alt="Logo"
-              width={168}
-              height={64}
+              width={154}
+              height={70}
               layout="fixed"
               objectFit="contain"
               style={{ verticalAlign: 'middle' }}
