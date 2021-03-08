@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 /** reactstrap */
-import { Container, Col, Row, Alert } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 
 /** components */
 import LayoutDefault from '@layouts/Default';

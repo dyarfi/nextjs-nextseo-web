@@ -1,5 +1,5 @@
 /** Reactstrap */
-import { Container, Col, Row } from 'reactstrap';
+import { Container, Row } from 'reactstrap';
 
 /** components */
 import LayoutDefault from '@layouts/Default';

@@ -1,6 +1,5 @@
 /** components */
 import LayoutDefault from '@layouts/Default';
-import BlockMainTop from '@components/blocks/BlockMainTop';
 import BlockMainBottom from '@components/blocks/BlockMainBottom';
 
 /** seo */

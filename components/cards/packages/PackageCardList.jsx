@@ -1,7 +1,7 @@
 import React from 'react';
 
 /** reactstrap */
-import { Row, Col } from 'reactstrap';
+import { Col } from 'reactstrap';
 
 function PackageCardList(props) {
   const { itemList } = props;
