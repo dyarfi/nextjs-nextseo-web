@@ -12,7 +12,7 @@ import {
 } from 'reactstrap';
 
 /* routes */
-import ROUTES from '../../config/routes';
+import ROUTES from '@config/routes';
 
 function Header(props) {
   const { pathname } = props;

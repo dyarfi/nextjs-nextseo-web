@@ -4,18 +4,18 @@ import React, { useState } from 'react';
 import { Container, Col, Row, Alert } from 'reactstrap';
 
 /** components */
-import LayoutDefault from '../layouts/Default';
-import BlockMainTop from '../components/blocks/BlockMainTop';
-import BlockMainBottom from '../components/blocks/BlockMainBottom';
+import LayoutDefault from '@layouts/Default';
+import BlockMainTop from '@components/blocks/BlockMainTop';
+import BlockMainBottom from '@components/blocks/BlockMainBottom';
 
 /** cards */
-import ServiceCardList from '../components/cards/services/ServiceCardList';
-import PackageCardList from '../components/cards/packages/PackageCardList';
+import ServiceCardList from '@components/cards/services/ServiceCardList';
+import PackageCardList from '@components/cards/packages/PackageCardList';
 
 /** seo */
 import { NextSeo } from 'next-seo';
 /** env */
-import ENV from '../config/env';
+import ENV from '@config/env';
 /** vars */
 const {
   BASE_URL = '',

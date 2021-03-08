@@ -1,12 +1,12 @@
 /** components */
-import LayoutDefault from '../layouts/Default';
-import BlockMainTop from '../components/blocks/BlockMainTop';
-import BlockMainBottom from '../components/blocks/BlockMainBottom';
+import LayoutDefault from '@layouts/Default';
+import BlockMainTop from '@components/blocks/BlockMainTop';
+import BlockMainBottom from '@components/blocks/BlockMainBottom';
 
 /** seo */
 import { NextSeo } from 'next-seo';
 /** env */
-import ENV from '../config/env';
+import ENV from '@config/env';
 /** vars */
 const { BASE_URL = '', BASE_API_URL = '', STATIC_DIR = '', AUTHOR } = ENV;
 

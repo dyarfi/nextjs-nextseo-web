@@ -7,7 +7,7 @@ import Link from 'next/link';
 import { Container, Col, Row, Nav } from 'reactstrap';
 
 /* routes */
-import ROUTES from '../../config/routes';
+import ROUTES from '@config/routes';
 
 function Footer(props) {
   return (
