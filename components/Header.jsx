@@ -40,11 +40,12 @@ function Header(props) {
             <Image
               src="/infinup.svg"
               alt="Logo"
-              width={154}
-              height={70}
+              width={144}
+              height={60}
               layout="fixed"
               objectFit="contain"
               style={{ verticalAlign: 'middle' }}
+              className="py-2"
             />
           </NavbarBrand>
           <NavbarToggler
@@ -63,7 +64,7 @@ function Header(props) {
                 <Link href={ROUTES.INDEX.href} passHref>
                   <a
                     className={`nav-link${
-                      pathname === '/' ? ` text-dark` : ''
+                      pathname === '/' ? ` text-active` : ''
                     }`}
                   >
                     Home
@@ -74,7 +75,7 @@ function Header(props) {
                 <Link href={ROUTES.ABOUT.href} passHref>
                   <a
                     className={`nav-link${
-                      pathname === '/about' ? ` text-dark` : ''
+                      pathname === '/about' ? ` text-active` : ''
                     }`}
                   >
                     About
@@ -85,7 +86,7 @@ function Header(props) {
                 <Link href={ROUTES.SERVICE.href} passHref>
                   <a
                     className={`nav-link${
-                      pathname === '/service' ? ` text-dark` : ''
+                      pathname === '/service' ? ` text-active` : ''
                     }`}
                   >
                     Service
@@ -96,7 +97,7 @@ function Header(props) {
                 <Link href={ROUTES.CONTACT.href} passHref>
                   <a
                     className={`nav-link${
-                      pathname === '/contact' ? ` text-dark` : ''
+                      pathname === '/contact' ? ` text-active` : ''
                     }`}
                   >
                     Contact

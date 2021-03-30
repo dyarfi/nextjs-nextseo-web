@@ -1,5 +1,5 @@
 /* env */
-import ENV from './config/env';
+import ENV from '@config/env';
 
 /* env vars */
 const {
@@ -38,7 +38,7 @@ export default {
           url: `${BASE_URL}${STATIC_DIR}${IMAGE_SHARE}`,
           width: 800,
           height: 800,
-          alt: 'Og Image Alt',
+          alt: TITLE,
         },
       ],
     },
@@ -84,7 +84,7 @@ export default {
         type: 'ImageObject',
         id: `${BASE_URL}/#logo`,
         inLanguage: LOCALE,
-        url: `${BASE_URL}${IMAGE_SHARE}`,
+        url: `${BASE_URL}${IMAGE}`,
         width: 112,
         height: 112,
         caption: NAME,

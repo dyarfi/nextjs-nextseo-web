@@ -17,7 +17,7 @@ function Documentation() {
     openGraph: [
       {
         url: BASE_URL,
-        images: { url: `${BASE_URL}${STATIC_DIR}xconnect.jpg` },
+        images: { url: `${BASE_URL}${STATIC_DIR}logo-share.jpg` },
         site_name: AUTHOR,
       },
     ],

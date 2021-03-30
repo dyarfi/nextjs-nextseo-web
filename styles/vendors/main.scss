@@ -511,6 +511,9 @@ $dark-theme: darken($theme, 32%);
     &.active {
       .nav-link {
         color: darken($warning, 15.5%);
+        &.text-active {
+          color: darken($warning, 17.5%);
+        }
       }
       @include media-breakpoint-up(md) {
         &:before {

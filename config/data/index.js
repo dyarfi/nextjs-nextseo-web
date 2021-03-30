@@ -9,7 +9,7 @@ export default {
     'https://images.unsplash.com/photo-1475738198235-4b30fc20cff4?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;format=auto&amp;fit=crop&amp;w=1487&amp;q=80',
   block_top: {
     title:
-      '<h1 class="display-3 text-warning">Connected devices, Internet and Dashboard</h1>',
+      '<h1 class="display-4 text-warning">Information System, Connected devices, Internet and Dashboard</h1>',
     image:
       'https://images.unsplash.com/photo-1516052315710-aa8a60249a00?ixlib=rb-1.2.1&amp;format=auto&amp;fit=crop&amp;w=1487&amp;q=80',
     body:

@@ -6,7 +6,7 @@ import '@styles/vendors/main.scss';
 // seos
 import { DefaultSeo, LocalBusinessJsonLd, SocialProfileJsonLd } from 'next-seo';
 
-import SEO from 'next-seo.config';
+import SEO from '@next-seo.config';
 
 const { metas, microdatas } = SEO;
 
